@@ -1,18 +1,33 @@
 "use client";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 export default function SearchLinks() {
-    const path = usePathname();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const type = searchParams.has("type") ? searchParams.get("type"): "Menu";
+  // const limit = searchParams.limit ? searchParams.limit : 5;
+
+  const handleChangeSearchType = (e) => {
+    router.replace(pathname + "/search/" + e.target.value.toLowerCase());
+    router.push(`/search/${e.target.value.toLowerCase()}`)
+  };
+
+console.log("type", type)
   return (
     <div>
       <div className="btn-container">
-        <button><Link href="/search">Menu</Link></button>
-        <button>Ingredient</button>
-        <button>Style</button>
-        <button>First Character</button>
-        <button>Area</button>
-        <button>Category</button>
+        <label className="PostsLimit">
+          Or Search By...
+          <select onChange={handleChangeSearchType} value={type}>
+            <option>Menu</option>
+            <option>Ingredient</option>
+            {/* <option>First Character</option> */}
+            <option>Area</option>
+            <option>Category</option>
+          </select>
+        </label>
       </div>
     </div>
   );

@@ -1,15 +1,9 @@
-import styles from "../page.module.css";
-import Search from "@/components/Search";
+import styles from '../page.module.css'
 
-export default function SearchPage() {
- 
-
-  
-
+export default function Search() {
   return (
     <div>
-      Search Page
-    <Search/>
-    </div>
-  );
+      <h1>Category</h1>
+   </div>
+  )
 }
