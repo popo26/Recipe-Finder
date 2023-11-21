@@ -1,5 +1,14 @@
 import Link from "next/link";
 
+import Box from '@mui/material/Box';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+
+
+
+
+
 async function getMealsByNationality(nationality) {
   console.log("path", nationality);
   const res = await fetch(
@@ -18,7 +27,7 @@ export default async function MealsByNationality({ params }) {
   console.log("Params", params);
   return (
     <>
-      <div>
+      {/* <div>
         {result ? (
           result.meals.map((item) => (
             <>
@@ -32,7 +41,26 @@ export default async function MealsByNationality({ params }) {
           <p>Loading...</p>
         )}
       </div>
-      <Link href="/search/area">All Area</Link>
+      <Link href="/search/area">All Area</Link> */}
+
+<Box sx={{ width: 1, height: 1, overflowY: 'scroll' }}>
+      <ImageList variant="masonry" cols={2} gap={8}>
+        {result.meals.map((item) => (
+          <ImageListItem key={item.idMeal}>
+            <img
+              srcSet={`${item.strMealThumb}?w=248&fit=crop&auto=format&dpr=2 2x`}
+              src={`${item.strMealThumb}?w=248&fit=crop&auto=format`}
+              alt={item.strMeal}
+              loading="lazy"
+            />
+            <Link href={`/search/menu/` + item.idMeal}><ImageListItemBar position="below" title={item.strMeal} /></Link>
+          </ImageListItem>
+        ))}
+      </ImageList>
+    </Box>
+
+
+
     </>
   );
 } // ++ Try adding Next Post and Previous Post links

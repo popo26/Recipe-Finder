@@ -3,6 +3,8 @@ import styles from "./page.module.css";
 import SearchLinks from "@/components/SearchLinks";
 import Link from "next/link";
 
+
+
 async function getRandomMeal() {
   const res = await fetch("http://www.themealdb.com/api/json/v1/1/random.php");
   if (!res.ok) {
@@ -15,6 +17,8 @@ async function getRandomMeal() {
 export default async function HomePage() {
   const result = await getRandomMeal();
   return (
+  
+
     <main className={styles.main}>
       <section>
         <h1>Wanna try this?</h1>

@@ -7,14 +7,12 @@ export default function SearchLinks() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const type = searchParams.has("type") ? searchParams.get("type"): "Menu";
-  // const limit = searchParams.limit ? searchParams.limit : 5;
 
   const handleChangeSearchType = (e) => {
     router.replace(pathname + "/search/" + e.target.value.toLowerCase());
     router.push(`/search/${e.target.value.toLowerCase()}`)
   };
 
-console.log("type", type)
   return (
     <div>
       <div className="btn-container">
