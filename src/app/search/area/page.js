@@ -1,4 +1,5 @@
 import styles from "../../page.module.css";
+import Link from "next/link";
 
 async function getArea() {
   const res = await fetch(
@@ -20,7 +21,11 @@ export default async function Area() {
         {result ? (
           result.meals.map((item) => (
             <>
-              <button key={item.strArea}>{item.strArea}</button><br/>
+              <div key={item.strArea}>
+                <Link href={`/search/area/${item.strArea}`}>
+                  <button key={item.strArea}>{item.strArea}</button>
+                </Link>
+              </div>
             </>
           ))
         ) : (

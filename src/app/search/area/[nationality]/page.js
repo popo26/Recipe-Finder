@@ -1,20 +1,20 @@
 import Link from "next/link";
 
-async function getMealsBySelectedMainIngredient(mainIngredient) {
-  console.log("path", mainIngredient);
+async function getMealsByNationality(nationality) {
+  console.log("path", nationality);
   const res = await fetch(
-    `http://www.themealdb.com/api/json/v1/1/filter.php?c=${mainIngredient}`
+    `http://www.themealdb.com/api/json/v1/1/filter.php?a=${nationality}`
   );
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch post #" + mainIngredient);
+    throw new Error("Failed to fetch post #" + nationality);
   }
   return res.json();
 }
 
 // Uses params prop to get value of [id] from path segment
-export default async function MealsBySelectedMainIngredient({ params }) {
-  const result = await getMealsBySelectedMainIngredient(params.mainIngredient);
+export default async function MealsByNationality({ params }) {
+  const result = await getMealsByNationality(params.nationality);
   console.log("Params", params);
   return (
     <>
@@ -23,7 +23,6 @@ export default async function MealsBySelectedMainIngredient({ params }) {
           result.meals.map((item) => (
             <>
               <h3 key={item.idMeal}>
-
                 <Link href={`/search/menu/` + item.idMeal}>{item.strMeal}</Link>
               </h3>
               <img src={item.strMealThumb} alt={item.strMeal} width="100px" />
@@ -33,7 +32,7 @@ export default async function MealsBySelectedMainIngredient({ params }) {
           <p>Loading...</p>
         )}
       </div>
-      <Link href="/search/category">All Categories</Link>
+      <Link href="/search/area">All Area</Link>
     </>
   );
 } // ++ Try adding Next Post and Previous Post links

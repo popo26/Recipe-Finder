@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import SearchLinks from "@/components/SearchLinks";
-
+import Link from "next/link";
 
 async function getRandomMeal() {
   const res = await fetch("http://www.themealdb.com/api/json/v1/1/random.php");
@@ -18,7 +18,9 @@ export default async function HomePage() {
     <main className={styles.main}>
       <section>
         <h1>Wanna try this?</h1>
-        <img src={result.meals[0].strMealThumb + "/preview"} width="300px" />
+        <Link href={"/search/menu/" + result.meals[0].idMeal}>
+          <img src={result.meals[0].strMealThumb} width="300px" />
+        </Link>
         <h3>{result.meals[0].strMeal}</h3>
       </section>
       <section>

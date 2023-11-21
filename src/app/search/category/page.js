@@ -15,6 +15,7 @@ async function getMealCategory() {
 export default async function Category() {
   const result = await getMealCategory();
 
+
   return (
     <main className={styles.main}>
       <h1>Category Information</h1>
@@ -22,9 +23,17 @@ export default async function Category() {
         {result ? (
           result.categories.map((item) => (
             <>
-              <h3 key={item.idCategory}><Link href={`/search/category/${item.strCategory}`}>{item.strCategory}</Link></h3>
-              <img src={item.strCategoryThumb} alt={item.strCategory} width="200px"/>
-              <p style={{display:"none"}}>{item.strCategoryDescription}</p>
+              <h3 key={item.idCategory}>
+                <Link href={`/search/category/` + item.strCategory}>
+                  {item.strCategory}
+                </Link>
+              </h3>
+              <img
+                src={item.strCategoryThumb}
+                alt={item.strCategory}
+                width="200px"
+              />
+              <p style={{ display: "none" }}>{item.strCategoryDescription}</p>
             </>
           ))
         ) : (
