@@ -65,7 +65,6 @@ export default async function Category() {
                   <CardMedia
                     component="img"
                     alt={item.strCategory}
-                    // height="140"
                     image={item.strCategoryThumb}
                   />
                   <CardContent>
