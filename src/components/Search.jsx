@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from "../css/custom.css";
 import { useState } from "react";
 
-export default function SearchByName({ searchTerm }) {
+export default function Search({ searchTerm }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -24,7 +24,7 @@ export default function SearchByName({ searchTerm }) {
   };
 
   return (
-    <div>
+    <div className="Search">
       <h1>Search by name</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="searchByName" />

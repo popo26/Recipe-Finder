@@ -1,13 +1,30 @@
+/* SearchLinks.jsx */
 .SearchLinks {
-    padding:30px
+  padding: 30px;
 }
 
 .SearchLinks label {
-    font-size: larger;
+  font-size: larger;
 }
 
 .SearchLinks select {
-    border-radius: 6px;
-    padding:4px;
-    margin-left:20px;
+  border-radius: 6px;
+  padding: 4px;
+  margin-left: 20px;
+}
+
+/* Search.jsx */
+
+.Search {
+  max-width: 80%;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.Search input {
+  border-radius: 6px;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding:6px;
 }

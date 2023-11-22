@@ -30,7 +30,7 @@ export default function SearchLinks() {
           <select onChange={handleChangeSearchType} value={type}>
           <option>Select From </option>
 
-            <option>Ingredient</option>
+            {/* <option>Ingredient</option> */}
             <option>Area</option>
             <option>Category</option>
             <option>Menu</option>

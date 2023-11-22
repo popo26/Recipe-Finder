@@ -35,7 +35,6 @@
 //   );
 // }
 
-
 import * as React from "react";
 import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
@@ -49,6 +48,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 
 import MenuItem from "@mui/material/MenuItem";
+import { MenuBook, Home } from "@mui/icons-material";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Menu } from "@mui/material";
@@ -80,8 +80,6 @@ export default function NavBar() {
     <>
       <Box sx={{ flexGrow: 1 }}>
         <ThemeProvider theme={darkTheme}>
-        
-
           <AppBar position="static">
             <Toolbar>
               <IconButton
@@ -91,14 +89,14 @@ export default function NavBar() {
                 aria-label="menu"
                 sx={{ mr: 2 }}
               >
-                <MenuIcon 
+                <MenuIcon
                   color="inherit"
                   id="resources-button"
                   onClick={handleClick}
                   aria-control={open ? "resources-menu" : undefined}
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}
-                  endIcon={<KeyboardArrowDownIcon/>}                
+                  endIcon={<KeyboardArrowDownIcon />}
                 />
                 <Menu
                   id="resources-menu"
@@ -117,25 +115,36 @@ export default function NavBar() {
                     horizontal: "right",
                   }}
                 >
-                  <MenuItem onClick={handleClose}><Link href="/">Home</Link></MenuItem>
-                  <MenuItem onClick={handleClose}> <Link
-            href="/about"
-            // className={path.startsWith("/about") ? "active" : null}
-          >
-            About
-          </Link></MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    <Link href="/"><Home /></Link>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    {" "}
+                    <Link
+                      href="/about"
+                      // className={path.startsWith("/about") ? "active" : null}
+                    >
+                      About
+                    </Link>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    {" "}
+                    <Link
+                      href="/contact"
+                      // className={path.startsWith("/about") ? "active" : null}
+                    >
+                      Contact
+                    </Link>
+                  </MenuItem>
                 </Menu>
               </IconButton>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Exercise5
+                Recipe Finder
               </Typography>
               <Button color="inherit">
-              <Link
-            href="/contact"
-            // className={path.startsWith("/contact") ? "active" : null}
-          >
-            Contact
-          </Link>
+                <Link href="/ingredient">
+                  <MenuBook color="inherit" fontSize="large" />
+                </Link>
               </Button>
             </Toolbar>
           </AppBar>
@@ -144,4 +153,3 @@ export default function NavBar() {
     </>
   );
 }
-
