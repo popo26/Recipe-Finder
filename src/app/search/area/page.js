@@ -35,13 +35,13 @@ const flags = {
   Mexican: "mx",
   Moroccan: "ma",
   Polish: "pl",
-  Portiguese: "pt",
+  Portuguese: "pt",
   Russian: "ru",
   Spanish: "es",
   Thai: "th",
   Tunisian: "tn",
   Turkish: "tr",
-  Unknown: "cn",
+  Unknown: "unknown",
   Vietnamese: "vn",
 };
 //MUI - Grid
@@ -58,34 +58,7 @@ async function getArea() {
     "https://www.themealdb.com/api/json/v1/1/list.php?a=list"
   );
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch post #");
-  }
-  return res.json();
-}
-
-// async function searchImage(term) {
-//   // const response = await axios.get("https://api.unsplash.com/search/photos", {
-//   const response = await fetch(
-//     `https://api.unsplash.com/search/photos?page=1&query=${term}`,
-//     {
-//       headers: {
-//         Authorization: `Client-ID ${process.env.REACT_APP_API_ACCESS_KEY}`,
-//       },
-//       params: {
-//         query: term,
-//       },
-//     }
-//   );
-//   return response.data.results;
-// }
-
-async function searchFlag(term) {
-  const res = await fetch(
-    `https://api.unsplash.com/search/photos?client_id=${process.env.REACT_APP_API_ACCESS_KEY}&page=1&per_page=1&query=${term}-flag`
-  );
-  if (!res.ok) {
-    throw new Error("Failed to fetch post #" + term);
   }
   return res.json();
 }
@@ -93,78 +66,69 @@ async function searchFlag(term) {
 export default async function Area() {
   const result = await getArea();
 
-  // const flags = await searchFlag("american");
-  // console.log(flags["results"][0].urls.small);
-
-  console.log(flags["Chinese"]);
-
   return (
-    // <main className={styles.main}>
-    //   <h1>Area Information</h1>
-    //   <section>
-    //     {result ? (
-    //       result.meals.map((item) => (
-    //         <>
-    //           <div key={item.strArea}>
-    //             <Link href={`/search/area/${item.strArea}`}>
-    //               <button key={item.strArea}>{item.strArea}</button>
-    //             </Link>
-    //           </div>
-    //         </>
-    //       ))
-    //     ) : (
-    //       <p>No information</p>
-    //     )}
-    //   </section>
-    // </main>
     <>
-      <h1>Nationalities</h1>
-      <hr />
-      {/* {result ? (
-        result.meals.map((item) => (
-          <div key={item.strArea}>
-            <Box sx={{ flexGrow: 1 }}>
-              <Grid container spacing={2}>
-                <Grid item xs>
-                  <Link href={`/search/area/${item.strArea}`}>
-                    <Item>{item.strArea}</Item>
-                  </Link>
-                </Grid>
-              </Grid>
-            </Box>
-          </div>
-        ))
-      ) : (
-        <p>Loading...</p>
-      )} */}
+      <h1>Meals by Area</h1>
 
-      {result ? (
-        result.meals.map((item) => (
-          <div key={item.strArea}>
-            <Link href={`/search/area/${item.strArea}`}>
-              <Card sx={{ maxWidth: 345 }}>
-                <CardActionArea>
-                  {/* <CardMedia
-                    component="img"
-                    height="140"
-                    image={null}
-                    alt={item.strArea}
-                  /> */}
-                  <Flag code={flags[item.strArea]} />
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "20px",
+          flexWrap: "wrap",
+          margin: "auto",
+          width: "90vw",
+        }}
+      >
+        {result ? (
+          result.meals.map((item) => (
+            <div key={item.strArea}>
+              <Link href={`/search/area/${item.strArea}`}>
+                {/* <Card sx={{ maxWidth: 345 }}> */}
+                <Card
+                  sx={{
+                    width: 280,
+                    margin: "0 auto",
+                    padding: "0.1em",
+                    mb: 4,
+                  }}
+                >
+                  <CardActionArea>
+                    {item.strArea == "Unknown" ? (
+                      <CardMedia
+                        component="img"
+                        height="105"
+                        image={
+                          "https://media.giphy.com/media/xUOxfjsW9fWPqEWouI/giphy.gif"
+                        }
+                        alt={item.strArea}
+                        sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}
+                      />
+                    ) : (
+                      <Flag
+                        code={flags[item.strArea]}
+                        style={{
+                          padding: "1em 1em 0 1em",
+                          objectFit: "contain",
+                          height: "100px",
+                        }}
+                      />
+                    )}
 
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {item.strArea}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Link>
-          </div>
-        ))
-      ) : (
-        <p>Loading...</p>
-      )}
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {item.strArea}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Link>
+            </div>
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
+      </Box>
     </>
   );
 }

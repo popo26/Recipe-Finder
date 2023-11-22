@@ -17,7 +17,6 @@ async function getMealByName(name) {
 
 // export default async function Menu() {
 export default async function Menu({ searchParams }) {
-  // const limit = searchParams.limit ? searchParams.limit : 5;
   const term = searchParams.term ? searchParams.term : "";
   const data = await getMealByName(term);
   const resultList = data.meals.map((item) => (
@@ -28,8 +27,8 @@ export default async function Menu({ searchParams }) {
         {item.strMeal}
       </h3>
       <img src={item.strMealThumb} alt={item.strMeal} width="200px" />
-      <h5>{item.strCategory}</h5>
-      <h5>{item.strArea}</h5>
+      <h5>Category: {item.strCategory}</h5>
+      <h5>Nationality: {item.strArea}</h5>
       </Link>
 
     </div>

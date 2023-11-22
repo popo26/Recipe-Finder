@@ -7,6 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { Box } from "@mui/material";
 
 async function getMealCategory() {
   const res = await fetch(
@@ -23,71 +24,57 @@ export default async function Category() {
   const result = await getMealCategory();
 
   return (
-    <main className={styles.main}>
+    <div>
       <h1>Category</h1>
-      <section>
-        {/* {result ? (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "20px",
+          flexWrap: "wrap",
+          margin: "auto",
+          width: "90vw",
+        }}
+      >
+        {result ? (
           result.categories.map((item) => (
-            <>
-              <h3 key={item.idCategory}>
-                <Link href={`/search/category/` + item.strCategory}>
-                  {item.strCategory}
-                </Link>
-              </h3>
-              <img
-                src={item.strCategoryThumb}
+            <Card
+              sx={{
+                maxWidth: 280,
+                margin: "0 auto",
+                padding: "0.1em",
+                mb: 4,
+              }}
+            >
+              <CardMedia
+                component="img"
                 alt={item.strCategory}
-                width="200px"
+                image={item.strCategoryThumb}
+                height="250"
+                sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}
               />
-              <p style={{ display: "none" }}>{item.strCategoryDescription}</p>
-            </>
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {item.strCategory}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {item.strCategoryDescription}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">
+                  {" "}
+                  <Link href={`/search/category/` + item.strCategory}>
+                    Menus
+                  </Link>
+                </Button>
+              </CardActions>
+            </Card>
           ))
         ) : (
           <p>No information</p>
-        )} */}
-
-        <>
-          {result ? (
-            result.categories.map((item) => (
-              <>
-                {/* <h3 key={item.idCategory}>
-                <Link href={`/search/category/` + item.strCategory}>
-                  {item.strCategory}
-                </Link>
-              </h3>
-              <img
-                src={item.strCategoryThumb}
-                alt={item.strCategory}
-                width="200px"
-              />
-              <p style={{ display: "none" }}>{item.strCategoryDescription}</p> */}
-                <Card sx={{ width: 1, mx:'auto', mb:4 }}>
-                  <CardMedia
-                    component="img"
-                    alt={item.strCategory}
-                    image={item.strCategoryThumb}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                    {item.strCategory}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                    {item.strCategoryDescription}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small"> <Link href={`/search/category/` + item.strCategory}>
-                  Menus
-                </Link></Button>
-                  </CardActions>
-                </Card>
-              </>
-            ))
-          ) : (
-            <p>No information</p>
-          )}
-        </>
-      </section>
-    </main>
+        )}
+      </Box>
+    </div>
   );
 }
