@@ -1,0 +1,13 @@
+.SearchLinks {
+    padding:30px
+}
+
+.SearchLinks label {
+    font-size: larger;
+}
+
+.SearchLinks select {
+    border-radius: 6px;
+    padding:4px;
+    margin-left:20px;
+}

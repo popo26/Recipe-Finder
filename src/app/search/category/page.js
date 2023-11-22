@@ -24,7 +24,7 @@ export default async function Category() {
 
   return (
     <main className={styles.main}>
-      <h1>Category Information</h1>
+      <h1>Category</h1>
       <section>
         {/* {result ? (
           result.categories.map((item) => (

@@ -8,7 +8,6 @@ export default function NavBar() {
   return (
     <nav
       className="NavBar"
-      style={{ backgroundColor: "#09193b", color: "#14bbe5" }}
     >
       <ul className="menu">
         {/* Next.js Link components use href instead of to prop */}
