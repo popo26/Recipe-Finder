@@ -14,37 +14,36 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-const flags = [
-  { American: "us" },
-  { British: "uk" },
-  { Canadian: "ca" },
-  { Chinese: "cn" },
-  { Croatian: "hr" },
-  { Dutch: "nl" },
-  { Egyptian: "eg" },
-  { Filipino: "ph" },
-  { French: "fr" },
-  { Greek: "gr" },
-  { Indian: "in" },
-  { Irish: "ie" },
-  { Italian: "it" },
-  { Jamaican: "jm" },
-  { Japanese: "jp" },
-  { Kenyan: "ke" },
-  { Malaysian: "my" },
-  { Mexican: "mx" },
-  { Moroccan: "ma" },
-  { Polish: "pl" },
-  { Portiguese: "pt" },
-  { Russian: "ru" },
-  { Spanish: "es" },
-  { Thai: "th" },
-  { Tunisian: "tn" },
-  { Turkish: "tr" },
-  { Unknown: "cn" },
-  { Vietnamese: "vn" },
-];
-
+const flags = {
+  American: "us",
+  British: "gb",
+  Canadian: "ca",
+  Chinese: "cn",
+  Croatian: "hr",
+  Dutch: "nl",
+  Egyptian: "eg",
+  Filipino: "ph",
+  French: "fr",
+  Greek: "gr",
+  Indian: "in",
+  Irish: "ie",
+  Italian: "it",
+  Jamaican: "jm",
+  Japanese: "jp",
+  Kenyan: "ke",
+  Malaysian: "my",
+  Mexican: "mx",
+  Moroccan: "ma",
+  Polish: "pl",
+  Portiguese: "pt",
+  Russian: "ru",
+  Spanish: "es",
+  Thai: "th",
+  Tunisian: "tn",
+  Turkish: "tr",
+  Unknown: "cn",
+  Vietnamese: "vn",
+};
 //MUI - Grid
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -97,6 +96,8 @@ export default async function Area() {
   // const flags = await searchFlag("american");
   // console.log(flags["results"][0].urls.small);
 
+  console.log(flags["Chinese"]);
+
   return (
     // <main className={styles.main}>
     //   <h1>Area Information</h1>
@@ -142,14 +143,15 @@ export default async function Area() {
           <div key={item.strArea}>
             <Link href={`/search/area/${item.strArea}`}>
               <Card sx={{ maxWidth: 345 }}>
-                <Flag code={flags[item.strArea]} />
                 <CardActionArea>
-                  <CardMedia
+                  {/* <CardMedia
                     component="img"
                     height="140"
                     image={null}
                     alt={item.strArea}
-                  />
+                  /> */}
+                  <Flag code={flags[item.strArea]} />
+
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                       {item.strArea}
