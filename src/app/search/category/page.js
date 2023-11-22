@@ -9,6 +9,11 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 async function getMealCategory() {
   const res = await fetch(
     "http://www.themealdb.com/api/json/v1/1/categories.php"
@@ -53,14 +58,6 @@ export default async function Category() {
                 height="250"
                 sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}
               />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {item.strCategory}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {item.strCategoryDescription}
-                </Typography>
-              </CardContent>
               <CardActions>
                 <Button size="small">
                   {" "}
@@ -69,10 +66,27 @@ export default async function Category() {
                   </Link>
                 </Button>
               </CardActions>
+
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2a-content"
+                  id="panel2a-header"
+                >
+                  <Typography gutterBottom variant="h5" component="div">
+                    {item.strCategory}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography variant="body2" color="text.secondary">
+                    {item.strCategoryDescription}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
             </Card>
           ))
         ) : (
-          <p>No information</p>
+          <p>Loading...</p>
         )}
       </Box>
     </div>
