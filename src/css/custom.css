@@ -37,7 +37,8 @@
 .Area > h1,
 .Search > h1,
 .About > h1,
-.Contact > h1 {
+.Contact > h1,
+.Ingredient > h1 {
   text-align: center;
   padding: 20px;
 }
@@ -73,7 +74,17 @@
   text-align: center;
 }
 
+.MealDetail section{
+  width:60%;
+  margin:auto;
+}
 .back-btn{
     text-align: center;
     margin-top:20px;
+}
+
+/* Ingredient */
+
+.Ingredient-list-div{
+    padding:50px;
 }

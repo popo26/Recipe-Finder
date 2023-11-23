@@ -1,4 +1,4 @@
-import styles from "../page.module.css";
+import styles from "../../css/custom.css";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -19,12 +19,9 @@ async function getIngredient() {
 export default async function Ingredient() {
   const result = await getIngredient();
   return (
-    <main className={styles.main}>
+    <div className="Ingredient">
       <h1>Available Ingredients</h1>
-      <div>
-        {/* <Search searchTerm={term} /> */}
-      </div>
-      <section>
+      <div className="Ingredient-list-div">
         {result ? (
           result.meals.map((item) => (
             <div key={item.idIngredient}>
@@ -37,10 +34,14 @@ export default async function Ingredient() {
                   aria-controls="panel2a-content"
                   id="panel2a-header"
                 >
-                  <Typography>{item.strIngredient}</Typography>
+                  <Typography sx={{ fontFamily: "Cascadia Mono" }}>
+                    {item.strIngredient}
+                  </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography>{item.strDescription}</Typography>
+                  <Typography sx={{ fontFamily: "Cascadia Mono" }}>
+                    {item.strDescription}
+                  </Typography>
                 </AccordionDetails>
               </Accordion>
             </div>
@@ -48,7 +49,7 @@ export default async function Ingredient() {
         ) : (
           <p>No information</p>
         )}
-      </section>
-    </main>
+      </div>
+    </div>
   );
 }

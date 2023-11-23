@@ -67,19 +67,27 @@ export default async function Category() {
                 </Button>
               </CardActions>
 
-              <Accordion >
+              <Accordion>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel2a-content"
                   id="panel2a-header"
-                  
                 >
-                  <Typography gutterBottom variant="h5" component="div" sx={{fontFamily:'Cascadia Mono'}}>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="div"
+                    sx={{ fontFamily: "Cascadia Mono" }}
+                  >
                     {item.strCategory}
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography variant="body2" color="text.secondary" sx={{fontFamily:'Cascadia Mono'}}>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ fontFamily: "Cascadia Mono" }}
+                  >
                     {item.strCategoryDescription}
                   </Typography>
                 </AccordionDetails>

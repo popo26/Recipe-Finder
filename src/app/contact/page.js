@@ -127,7 +127,6 @@ export default function Contact() {
           component="form"
           sx={{
             "& > :not(style)": { m: 1, width: "25ch" },
-            
           }}
           noValidate
           autoComplete="off"
@@ -146,11 +145,19 @@ export default function Contact() {
           />
           <TextField label="Email" variant="standard" color="success" focused />
         </Box>
-        <Textarea aria-label="empty textarea" placeholder="Say Hi!" sx={{fontFamily:'Cascadia Mono', padding:'20px', my:"20px"}}/>
+        <Textarea
+          aria-label="empty textarea"
+          placeholder="Say Hi!"
+          sx={{ fontFamily: "Cascadia Mono", padding: "20px", my: "20px" }}
+        />
         {/* <Stack spacing={2} direction="row"> */}
         <Box>
-          <Button sx={{fontFamily:'Cascadia Mono', backgroundColor:"#308080"}}>Send</Button>
-          </Box>
+          <Button
+            sx={{ fontFamily: "Cascadia Mono", backgroundColor: "#308080" }}
+          >
+            Send
+          </Button>
+        </Box>
         {/* </Stack> */}
       </form>
     </div>
