@@ -13,6 +13,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
+import BackBtn from "@/components/BackBtn";
 
 async function getMealDetail(id) {
   console.log("path", id);
@@ -80,10 +81,6 @@ export default async function MealDetail({ params }) {
             </h4>
           </div>
 
-          {/* <Video videoLink={result.meals[0].strYoutube}/> */}
-          {/* <h3>Instruction: </h3>
-          <aside>{result.meals[0].strInstructions}</aside> */}
-
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -126,6 +123,8 @@ export default async function MealDetail({ params }) {
           </Button>
         </Link>
       </div>
+      <BackBtn/>
+
     </div>
   );
 } // ++ Try adding Next Post and Previous Post links

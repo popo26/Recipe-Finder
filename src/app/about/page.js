@@ -1,3 +1,4 @@
+import BackBtn from "@/components/BackBtn";
 import styles from "../page.module.css";
 
 export default function About() {
@@ -14,6 +15,7 @@ export default function About() {
         vitae magna eget, malesuada placerat lorem. Aliquam mi orci, malesuada
         et nunc nec, aliquam tincidunt est.
       </p>
+      <BackBtn/>
     </div>
   );
 }

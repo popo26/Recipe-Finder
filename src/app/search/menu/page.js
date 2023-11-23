@@ -8,8 +8,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 
-
 import { CardActionArea } from "@mui/material";
+import BackBtn from "@/components/BackBtn";
 
 async function getMealByName(name) {
   const res = await fetch(
@@ -25,23 +25,13 @@ async function getMealByName(name) {
 // export default async function Menu() {
 export default async function Menu({ searchParams }) {
   const term = searchParams.term ? searchParams.term : "";
+
   const data = await getMealByName(term);
-  const resultList = data.meals.map((item) => (
-    <>
-      {/* <div key={item.idMeal}>
-        <Link href={`/search/menu/` + item.idMeal}>
-          <h3>{item.strMeal}</h3>
-          <img src={item.strMealThumb} alt={item.strMeal} width="200px" />
-          <h5>Category: {item.strCategory}</h5>
-          <h5>Nationality: {item.strArea}</h5>
-        </Link> */}
-
-
-
-  {data ? (
+  let resultList;
+  if (data.meals != null) {
+    resultList = data.meals.map((item) => (
       <div key={item.idMeal}>
-         <Link href={`/search/menu/` + item.idMeal}>
-          {/* <Card sx={{ maxWidth: 345 }}> */}
+        <Link href={`/search/menu/` + item.idMeal}>
           <Card
             sx={{
               width: 280,
@@ -51,56 +41,56 @@ export default async function Menu({ searchParams }) {
             }}
           >
             <CardActionArea>
-              {/* {item.strArea == "Unknown" ? ( */}
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={item.strMealThumb}
-                  alt={item.strMeal}
-                  sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}
-                />
-           
+              <CardMedia
+                component="img"
+                height="200"
+                image={item.strMealThumb}
+                alt={item.strMeal}
+                sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}
+              />
 
-              <CardContent  sx={{fontFamily:"Cascadia Mono" }}>
-                <Typography gutterBottom variant="p" component="div">
-                Category: {item.strCategory}
+              <CardContent sx={{ fontFamily: "Cascadia Mono" }}>
+                <Typography
+                  gutterBottom
+                  variant="p"
+                  component="div"
+                  sx={{ fontWeight: "900", fontSize: "1rem" }}
+                >
+                  {item.strMeal}
                 </Typography>
                 <Typography gutterBottom variant="p" component="div">
-                Nationality: {item.strArea}
+                  Category: {item.strCategory}
+                </Typography>
+                <Typography gutterBottom variant="p" component="div">
+                  Nationality: {item.strArea}
                 </Typography>
               </CardContent>
             </CardActionArea>
           </Card>
         </Link>
       </div>
-    // ))
-  ) : (
-    <p>Loading...</p>
-  )}
-
-    </>
-  ));
-
- 
-
-
-
-
+    ));
+  } else {
+    resultList = <p>No meal found.</p>;
+  }
+  
 
   return (
     <div>
       <Search searchTerm={term} />
       <Box
-  sx={{
-    display: "flex",
-    justifyContent: "center",
-    gap: "20px",
-    flexWrap: "wrap",
-    margin: "auto",
-    width: "90vw",
-  }}
->{resultList}
-    </Box>
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "20px",
+          flexWrap: "wrap",
+          margin: "auto",
+          width: "90vw",
+        }}
+      >
+        {resultList}
+      </Box>
+      <BackBtn/>
     </div>
   );
 }

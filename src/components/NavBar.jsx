@@ -112,15 +112,15 @@ export default function NavBar() {
                 aria-label="menu"
                 sx={{ mr: 2 }}
                 style={{ color: "#808080" }}
+           
               >
                 <MenuIcon
                   color="inherit"
                   id="resources-button"
                   onClick={handleClick}
-                  aria-control={open ? "resources-menu" : undefined}
+                  aria-controls={open ? "resources-menu" : undefined}
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}
-                  endIcon={<KeyboardArrowDownIcon />}
                   fontSize="large"
                 />
                 <Menu
@@ -147,11 +147,7 @@ export default function NavBar() {
                   </MenuItem>
                   <MenuItem onClick={handleClose} style={{ color: "#808080" }}>
                     {" "}
-                    <Link
-                      href="/about"
-                    >
-                      About
-                    </Link>
+                    <Link href="/about">About</Link>
                   </MenuItem>
                   <MenuItem onClick={handleClose} style={{ color: "#808080" }}>
                     {" "}
@@ -164,12 +160,21 @@ export default function NavBar() {
                   </MenuItem>
                 </Menu>
               </IconButton>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{ color: "#808080" }}>
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{ flexGrow: 1 }}
+                style={{ color: "#808080" }}
+              >
                 Recipe Finder
               </Typography>
 
               <Link href="/ingredient">
-                <MenuBook color="inherit" fontSize="large" style={{ color: "#808080" }}/>
+                <MenuBook
+                  color="inherit"
+                  fontSize="large"
+                  style={{ color: "#808080" }}
+                />
               </Link>
             </Toolbar>
           </AppBar>

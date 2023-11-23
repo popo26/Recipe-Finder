@@ -6,6 +6,7 @@ import { TextareaAutosize as BaseTextareaAutosize } from "@mui/base/TextareaAuto
 import { styled } from "@mui/system";
 import { Button as BaseButton } from "@mui/base/Button";
 import Stack from "@mui/material/Stack";
+import BackBtn from "@/components/BackBtn";
 
 //MUI - Textarea-autosize
 const blue = {
@@ -122,7 +123,7 @@ export default function Contact() {
   return (
     <div className="Contact">
       <h1>Contact</h1>
-      <form>
+      {/* <form> */}
         <Box
           component="form"
           sx={{
@@ -159,7 +160,8 @@ export default function Contact() {
           </Button>
         </Box>
         {/* </Stack> */}
-      </form>
+      {/* </form> */}
+      <BackBtn/>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import BackBtn from "@/components/BackBtn";
 
 async function getIngredient() {
   const res = await fetch(
@@ -50,6 +51,7 @@ export default async function Ingredient() {
           <p>No information</p>
         )}
       </div>
+      <BackBtn />
     </div>
   );
 }

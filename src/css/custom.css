@@ -38,7 +38,9 @@
 .Search > h1,
 .About > h1,
 .Contact > h1,
-.Ingredient > h1 {
+.Ingredient > h1,
+.MealsByArea > h1,
+.MealDetail > h1 {
   text-align: center;
   padding: 20px;
 }
@@ -47,6 +49,7 @@
 .About {
   max-width: 90%;
   margin: auto;
+  height: 100vh;
 }
 
 /* Contact */
@@ -54,6 +57,7 @@
   min-width: 80%;
   margin: auto;
   text-align: center;
+  height: 100vh;
 }
 
 /* MealDetail */
@@ -61,6 +65,7 @@
 .MealDetail {
   width: 90%;
   margin: auto;
+
 }
 
 .MealDetail aside {
@@ -74,17 +79,31 @@
   text-align: center;
 }
 
-.MealDetail section{
-  width:60%;
-  margin:auto;
+.MealDetail section {
+  width: 60%;
+  margin: auto;
+  text-align: center;
 }
-.back-btn{
-    text-align: center;
-    margin-top:20px;
+.back-btn {
+  text-align: center;
+  margin-top: 20px;
 }
 
 /* Ingredient */
 
-.Ingredient-list-div{
-    padding:50px;
+.Ingredient-list-div {
+  padding: 50px;
+}
+
+/* MealsByArea */
+.MealsbyArea {
+
+  text-align: center;
+  min-height: 100%;;
+}
+
+/* BackBtn */
+.BackBtn{
+  text-align: center;
+  margin-top:20px;
 }

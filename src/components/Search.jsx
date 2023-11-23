@@ -10,23 +10,27 @@ export default function Search({ searchTerm }) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [keyword, setKeyword] = useState("");
-  const term = searchParams.has("term") ? searchParams.get("term") : searchTerm;
+  let term = searchParams.has("term") ? searchParams.get("term") : searchTerm;
 
   const handleChange = (e) => {
     console.log(e.target.value);
     setKeyword(e.target.value);
   };
 
+  // console.log("keyword", keyword);
+  // console.log("term", term);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     router.replace(pathname + "?term=" + keyword);
-    setKeyword("")
+    setKeyword("");
   };
 
   return (
     <div className="Search">
       <h1>Search by name</h1>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}> */}
+      <form>
         <label htmlFor="searchByName" />
         <input
           name="searchByName"
@@ -35,7 +39,13 @@ export default function Search({ searchTerm }) {
           onChange={handleChange}
           value={keyword}
         />
-        <Button variant="contained" sx={{fontFamily:'Cascadia Mono', backgroundColor:"#308080"}}>Search</Button>
+        <Button
+          onClick={handleSubmit}
+          variant="contained"
+          sx={{ fontFamily: "Cascadia Mono", backgroundColor: "#308080" }}
+        >
+          Search
+        </Button>
       </form>
     </div>
   );

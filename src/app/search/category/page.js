@@ -13,6 +13,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import BackBtn from "@/components/BackBtn";
 
 async function getMealCategory() {
   const res = await fetch(
@@ -98,6 +99,7 @@ export default async function Category() {
           <p>Loading...</p>
         )}
       </Box>
+      <BackBtn />
     </div>
   );
 }

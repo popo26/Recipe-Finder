@@ -13,6 +13,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import BackBtn from "@/components/BackBtn";
 
 const flags = {
   American: "us",
@@ -131,6 +132,7 @@ export default async function Area() {
           <p>Loading...</p>
         )}
       </Box>
+      <BackBtn />
     </div>
   );
 }

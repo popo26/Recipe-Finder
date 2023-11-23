@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import BackBtn from "@/components/BackBtn";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
@@ -100,7 +100,7 @@ export default async function MealsBySelectedMainIngredient({ params }) {
         )}
       </ImageList>
       {/* </Box> */}
-      <Link href="/search/category">All Categories</Link>
+      <BackBtn/>
     </div>
   );
 } // ++ Try adding Next Post and Previous Post links

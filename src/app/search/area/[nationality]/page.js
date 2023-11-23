@@ -1,15 +1,19 @@
 import Link from "next/link";
-
+import styles from "../../../../css/custom.css"
 import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import ListSubheader from "@mui/material/ListSubheader";
+import BackBtn from "@/components/BackBtn";
+import { Button } from "@mui/material";
 
-async function getMealsByNationality(nationality) {
+async function getMealsByArea(nationality) {
   console.log("path", nationality);
   const res = await fetch(
-    `http://www.themealdb.com/api/json/v1/1/filter.php?a=${nationality}`
+    `http://www.themealdb.com/api/json/v1/1/filter.php?a=${nationality}`,
+    { method: "GET", mode: "cors" }
+
   );
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -19,12 +23,12 @@ async function getMealsByNationality(nationality) {
 }
 
 // Uses params prop to get value of [id] from path segment
-export default async function MealsByNationality({ params }) {
-  const result = await getMealsByNationality(params.nationality);
+export default async function MealsByArea({ params }) {
+  const result = await getMealsByArea(params.nationality);
   console.log("Params", params);
   return (
-    <>
-          <h2>{params.nationality}</h2>
+    <div className="MealsByArea">
+          <h1>{params.nationality}</h1>
 
       <Box
         sx={{
@@ -55,8 +59,7 @@ export default async function MealsByNationality({ params }) {
           ))}
         </ImageList>
       </Box>
-
-      <Link href="/search/area">All Area</Link>
-    </>
+<BackBtn/>
+    </div>
   );
 } // ++ Try adding Next Post and Previous Post links
