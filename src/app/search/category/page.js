@@ -29,7 +29,7 @@ export default async function Category() {
   const result = await getMealCategory();
 
   return (
-    <div>
+    <div className="Category">
       <h1>Category</h1>
       <Box
         sx={{
@@ -67,18 +67,19 @@ export default async function Category() {
                 </Button>
               </CardActions>
 
-              <Accordion>
+              <Accordion >
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel2a-content"
                   id="panel2a-header"
+                  
                 >
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography gutterBottom variant="h5" component="div" sx={{fontFamily:'Cascadia Mono'}}>
                     {item.strCategory}
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.secondary" sx={{fontFamily:'Cascadia Mono'}}>
                     {item.strCategoryDescription}
                   </Typography>
                 </AccordionDetails>

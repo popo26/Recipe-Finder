@@ -23,7 +23,7 @@ export default function SearchLinks() {
   console.log(selectedChoice)
 
   return (
-    <div>
+    <div >
       <div className="btn-container SearchLinks" >
         <label>
           Or Search By...

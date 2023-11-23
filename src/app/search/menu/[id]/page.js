@@ -1,4 +1,6 @@
 import Link from "next/link";
+import styles from "../../../../css/custom.css";
+import { Button } from "@mui/material";
 
 async function getMealDetail(id) {
   console.log("path", id);
@@ -17,27 +19,41 @@ export default async function MealDetail({ params }) {
   const result = await getMealDetail(params.id);
   console.log("Params", params);
   return (
-    <>
-      <div>
-        {result ? (
-          <>
-            <h3>{result.meals[0].strMeal}</h3>
+    <div className="MealDetail">
+      {result ? (
+        <>
+          <h1>{result.meals[0].strMeal}</h1>
+          <div className="MealDetail-img-div">
             <img
               src={result.meals[0].strMealThumb}
               alt={result.meals[0].strMeal}
-              width="50px"
+              width="100px"
             />
-            <video width="320" height="240" controls>
-              {" "}
-              <source src={result.meals[0].strYoutube} type="video/mp4" />
-            </video>
-            <aside>{Object.values(result.meals[0])}</aside>
-          </>
-        ) : (
-          <p>Loading...</p>
-        )}
+          </div>
+          <section>
+            <h6>Ingredients:</h6>
+          </section>
+          <video width="320" height="240" controls>
+            <source src={result.meals[0].strYoutube} type="video/mp4" />
+          </video>
+          <aside>{Object.values(result.meals[0])}</aside>
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
+      <div className="back-btn">
+        <Link href="/search/category">
+          <Button
+            sx={{
+              fontFamily: "Cascadia Mono",
+              backgroundColor: "#308080",
+              color: "white",
+            }}
+          >
+            All Categories
+          </Button>
+        </Link>
       </div>
-      <Link href="/search/category">All Categories</Link>
-    </>
+    </div>
   );
 } // ++ Try adding Next Post and Previous Post links

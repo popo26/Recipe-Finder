@@ -1,4 +1,6 @@
 "use client"; // client component, not server rendered
+import styles from "../css/custom.css";
+
 // import Link from "next/link";
 // import { usePathname } from "next/navigation";
 // // copied from previous NavBar.jsx component, modified for Next.js
@@ -55,12 +57,31 @@ import { Menu } from "@mui/material";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/Cloud";
 
-const darkTheme = createTheme({
+// const darkTheme = createTheme({
+//   palette: {
+//     mode: "dark",
+
+//     primary: {
+//       main: "#1976d2",
+//     },
+//   },
+// });
+
+const earthTheme = createTheme({
   palette: {
-    mode: "dark",
+    mode: "light",
     primary: {
-      main: "#1976d2",
+      light: "#fff",
+      main: "#e5e5e5",
+      dark: "#000",
     },
+    secondary: {
+      main: "#f44336",
+    },
+  },
+  typography: {
+    useNextVariants: true,
+    fontFamily: "Cascadia Mono",
   },
 });
 
@@ -77,9 +98,11 @@ export default function NavBar() {
   };
 
   return (
-    <>
+    <div className="NavBar">
       <Box sx={{ flexGrow: 1 }}>
-        <ThemeProvider theme={darkTheme}>
+        <ThemeProvider theme={earthTheme}>
+          {/* <ThemeProvider theme={customTheme}> */}
+
           <AppBar position="static">
             <Toolbar>
               <IconButton
@@ -88,6 +111,7 @@ export default function NavBar() {
                 color="inherit"
                 aria-label="menu"
                 sx={{ mr: 2 }}
+                style={{ color: "#808080" }}
               >
                 <MenuIcon
                   color="inherit"
@@ -97,6 +121,7 @@ export default function NavBar() {
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}
                   endIcon={<KeyboardArrowDownIcon />}
+                  fontSize="large"
                 />
                 <Menu
                   id="resources-menu"
@@ -115,19 +140,20 @@ export default function NavBar() {
                     horizontal: "right",
                   }}
                 >
-                  <MenuItem onClick={handleClose}>
-                    <Link href="/"><Home /></Link>
+                  <MenuItem onClick={handleClose} style={{ color: "#808080" }}>
+                    <Link href="/">
+                      <Home />
+                    </Link>
                   </MenuItem>
-                  <MenuItem onClick={handleClose}>
+                  <MenuItem onClick={handleClose} style={{ color: "#808080" }}>
                     {" "}
                     <Link
                       href="/about"
-                      // className={path.startsWith("/about") ? "active" : null}
                     >
                       About
                     </Link>
                   </MenuItem>
-                  <MenuItem onClick={handleClose}>
+                  <MenuItem onClick={handleClose} style={{ color: "#808080" }}>
                     {" "}
                     <Link
                       href="/contact"
@@ -138,18 +164,17 @@ export default function NavBar() {
                   </MenuItem>
                 </Menu>
               </IconButton>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{ color: "#808080" }}>
                 Recipe Finder
               </Typography>
-              <Button color="inherit">
-                <Link href="/ingredient">
-                  <MenuBook color="inherit" fontSize="large" />
-                </Link>
-              </Button>
+
+              <Link href="/ingredient">
+                <MenuBook color="inherit" fontSize="large" style={{ color: "#808080" }}/>
+              </Link>
             </Toolbar>
           </AppBar>
         </ThemeProvider>
       </Box>
-    </>
+    </div>
   );
 }

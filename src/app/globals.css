@@ -5,6 +5,8 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
+
+
   --foreground-rgb: 0, 0, 0;
   /* --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255; */
@@ -93,6 +95,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    background:url('../../public/leaves.jpg') no-repeat fixed center;
 }
 
 a {
@@ -106,9 +109,9 @@ a {
   }
 }
 
-/* basic NavBar CSS, add to globals.css */
+/* NavBar */
 
-.NavBar {
+ .NavBar {
   background-color: rgb(232, 250, 213);
 }
 .NavBar ul {
@@ -124,7 +127,8 @@ a {
   display: inline-block;
   text-decoration: none;
 }
+
 .NavBar ul li a.active {
   font-weight: bold;
-}
+} 
 

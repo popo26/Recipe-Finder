@@ -11,6 +11,7 @@
   border-radius: 6px;
   padding: 4px;
   margin-left: 20px;
+  font-family: "Cascadia Mono";
 }
 
 /* Search.jsx */
@@ -26,5 +27,53 @@
   border-radius: 6px;
   margin-right: 10px;
   margin-top: 10px;
-  padding:6px;
+  padding: 6px;
+  font-family: "Cascadia Mono";
+}
+
+/* common style */
+
+.Category > h1,
+.Area > h1,
+.Search > h1,
+.About > h1,
+.Contact > h1 {
+  text-align: center;
+  padding: 20px;
+}
+
+/* About */
+.About {
+  max-width: 90%;
+  margin: auto;
+}
+
+/* Contact */
+.Contact {
+  min-width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+/* MealDetail */
+
+.MealDetail {
+  width: 90%;
+  margin: auto;
+}
+
+.MealDetail aside {
+  font-family: "Cascadia Mono";
+  font-weight: 200;
+}
+
+.MealDetail-img-div {
+  width: 100%;
+  margin: 20px auto 20px;
+  text-align: center;
+}
+
+.back-btn{
+    text-align: center;
+    margin-top:20px;
 }

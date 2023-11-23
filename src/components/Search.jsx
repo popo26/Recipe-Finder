@@ -3,6 +3,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import styles from "../css/custom.css";
 import { useState } from "react";
+import { Button } from "@mui/material";
 
 export default function Search({ searchTerm }) {
   const pathname = usePathname();
@@ -14,7 +15,6 @@ export default function Search({ searchTerm }) {
   const handleChange = (e) => {
     console.log(e.target.value);
     setKeyword(e.target.value);
-    // router.replace(pathname + "?term=" + e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -35,7 +35,7 @@ export default function Search({ searchTerm }) {
           onChange={handleChange}
           value={keyword}
         />
-        <button>Search</button>
+        <Button variant="contained" sx={{fontFamily:'Cascadia Mono', backgroundColor:"#308080"}}>Search</Button>
       </form>
     </div>
   );

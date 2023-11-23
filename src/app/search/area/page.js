@@ -67,7 +67,7 @@ export default async function Area() {
   const result = await getArea();
 
   return (
-    <>
+    <div className="Area">
       <h1>Meals by Area</h1>
 
       <Box
@@ -111,12 +111,14 @@ export default async function Area() {
                           padding: "1em 1em 0 1em",
                           objectFit: "contain",
                           height: "100px",
+                          width:"90%",
+                          margin:"auto"
                         }}
                       />
                     )}
 
                     <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
+                      <Typography gutterBottom variant="h5" component="div" sx={{fontFamily:"Cascadia Mono" }}>
                         {item.strArea}
                       </Typography>
                     </CardContent>
@@ -129,6 +131,6 @@ export default async function Area() {
           <p>Loading...</p>
         )}
       </Box>
-    </>
+    </div>
   );
 }

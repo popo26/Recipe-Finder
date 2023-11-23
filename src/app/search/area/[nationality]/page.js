@@ -49,7 +49,7 @@ export default async function MealsByNationality({ params }) {
                 loading="lazy"
               />
               <Link href={`/search/menu/` + item.idMeal}>
-                <ImageListItemBar position="below" title={item.strMeal} />
+                <ImageListItemBar position="below" title={item.strMeal}  sx={{fontFamily:"Cascadia Mono" }} />
               </Link>
             </ImageListItem>
           ))}

@@ -2,7 +2,7 @@ import styles from "../page.module.css";
 
 export default function About() {
   return (
-    <div>
+    <div className="About">
       <h1>About</h1>
       <p>
         freestar freestar Lorem ipsum dolor sit amet, consectetur adipiscing

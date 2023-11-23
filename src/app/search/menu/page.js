@@ -54,14 +54,14 @@ export default async function Menu({ searchParams }) {
               {/* {item.strArea == "Unknown" ? ( */}
                 <CardMedia
                   component="img"
-                  height="105"
+                  height="200"
                   image={item.strMealThumb}
                   alt={item.strMeal}
                   sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}
                 />
            
 
-              <CardContent>
+              <CardContent  sx={{fontFamily:"Cascadia Mono" }}>
                 <Typography gutterBottom variant="p" component="div">
                 Category: {item.strCategory}
                 </Typography>

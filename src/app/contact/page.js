@@ -120,13 +120,14 @@ const Button = styled(BaseButton)(
 
 export default function Contact() {
   return (
-    <>
+    <div className="Contact">
       <h1>Contact</h1>
       <form>
         <Box
           component="form"
           sx={{
             "& > :not(style)": { m: 1, width: "25ch" },
+            
           }}
           noValidate
           autoComplete="off"
@@ -134,22 +135,24 @@ export default function Contact() {
           <TextField
             label="First Name"
             variant="standard"
-            color="warning"
+            color="success"
             focused
           />
           <TextField
             label="Last Name"
             variant="standard"
-            color="warning"
+            color="success"
             focused
           />
-          <TextField label="Email" variant="standard" color="warning" focused />
+          <TextField label="Email" variant="standard" color="success" focused />
         </Box>
-        <Textarea aria-label="empty textarea" placeholder="Empty" />
-        <Stack spacing={2} direction="row">
-          <Button>Send</Button>
-        </Stack>
+        <Textarea aria-label="empty textarea" placeholder="Say Hi!" sx={{fontFamily:'Cascadia Mono', padding:'20px', my:"20px"}}/>
+        {/* <Stack spacing={2} direction="row"> */}
+        <Box>
+          <Button sx={{fontFamily:'Cascadia Mono', backgroundColor:"#308080"}}>Send</Button>
+          </Box>
+        {/* </Stack> */}
       </form>
-    </>
+    </div>
   );
 }
