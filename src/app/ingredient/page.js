@@ -5,6 +5,8 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import BackBtn from "@/components/BackBtn";
+import PaginationRounded from "@/components/Pagination";
+import Search from "@/components/Search";
 
 async function getIngredient() {
   const res = await fetch(
@@ -12,7 +14,7 @@ async function getIngredient() {
   );
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch post #" + type);
+    throw new Error("Fetch failed");
   }
   return res.json();
 }
@@ -21,7 +23,9 @@ export default async function Ingredient() {
   const result = await getIngredient();
   return (
     <div className="Ingredient">
+      <BackBtn/>
       <h1>Available Ingredients</h1>
+
       <div className="Ingredient-list-div">
         {result ? (
           result.meals.map((item) => (
@@ -50,8 +54,9 @@ export default async function Ingredient() {
         ) : (
           <p>No information</p>
         )}
+              <BackBtn />
+
       </div>
-      <BackBtn />
     </div>
   );
 }

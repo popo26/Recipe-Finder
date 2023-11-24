@@ -110,7 +110,7 @@ export default async function MealDetail({ params }) {
       ) : (
         <p>Loading...</p>
       )}
-      <div className="back-btn">
+      {/* <div className="back-btn">
         <Link href="/search/category">
           <Button
             sx={{
@@ -122,7 +122,8 @@ export default async function MealDetail({ params }) {
             Back to All Categories
           </Button>
         </Link>
-      </div>
+
+      </div> */}
       <BackBtn/>
 
     </div>

@@ -21,6 +21,7 @@ export default async function HomePage() {
   
 
     <main className={styles.main}>
+      <div className="HomePage">
       <section>
         <h1>Wanna try this?</h1>
         <Link href={"/search/menu/" + result.meals[0].idMeal}>
@@ -31,6 +32,7 @@ export default async function HomePage() {
       <section>
         <SearchLinks />
       </section>
+      </div>
     </main>
   );
 }

@@ -65,6 +65,7 @@
 .MealDetail {
   width: 90%;
   margin: auto;
+  height: 100vh;
 
 }
 
@@ -91,19 +92,26 @@
 
 /* Ingredient */
 
+.Ingredient{
+  height:100%;
+}
+
 .Ingredient-list-div {
   padding: 50px;
 }
 
 /* MealsByArea */
 .MealsbyArea {
-
   text-align: center;
-  min-height: 100%;;
+  min-height:100vh;
 }
 
-/* BackBtn */
-.BackBtn{
-  text-align: center;
-  margin-top:20px;
+.Area{
+  height: 100%;
+
 }
+
+.Menu{
+  height:100%;
+}
+

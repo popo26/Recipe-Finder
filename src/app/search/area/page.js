@@ -69,6 +69,8 @@ export default async function Area() {
 
   return (
     <div className="Area">
+                    <BackBtn />
+
       <h1>Meals by Area</h1>
 
       <Box
@@ -131,8 +133,8 @@ export default async function Area() {
         ) : (
           <p>Loading...</p>
         )}
+
       </Box>
-      <BackBtn />
     </div>
   );
 }

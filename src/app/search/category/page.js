@@ -31,6 +31,8 @@ export default async function Category() {
 
   return (
     <div className="Category">
+            <BackBtn/>
+
       <h1>Category</h1>
       <Box
         sx={{
@@ -39,7 +41,7 @@ export default async function Category() {
           gap: "20px",
           flexWrap: "wrap",
           margin: "auto",
-          width: "90vw",
+          width: "100vw",
         }}
       >
         {result ? (
@@ -99,7 +101,6 @@ export default async function Category() {
           <p>Loading...</p>
         )}
       </Box>
-      <BackBtn />
     </div>
   );
 }

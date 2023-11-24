@@ -73,10 +73,10 @@ export default async function Menu({ searchParams }) {
   } else {
     resultList = <p>No meal found.</p>;
   }
-  
 
   return (
     <div>
+      <BackBtn />
       <Search searchTerm={term} />
       <Box
         sx={{
@@ -90,7 +90,6 @@ export default async function Menu({ searchParams }) {
       >
         {resultList}
       </Box>
-      <BackBtn/>
     </div>
   );
 }

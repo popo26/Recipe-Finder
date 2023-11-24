@@ -4,6 +4,8 @@ import styles from "../page.module.css";
 export default function About() {
   return (
     <div className="About">
+            <BackBtn/>
+
       <h1>About</h1>
       <p>
         freestar freestar Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -15,7 +17,6 @@ export default function About() {
         vitae magna eget, malesuada placerat lorem. Aliquam mi orci, malesuada
         et nunc nec, aliquam tincidunt est.
       </p>
-      <BackBtn/>
     </div>
   );
 }

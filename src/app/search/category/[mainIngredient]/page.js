@@ -98,9 +98,11 @@ export default async function MealsBySelectedMainIngredient({ params }) {
         ) : (
           <p>Loading...</p>
         )}
+
       </ImageList>
       {/* </Box> */}
       <BackBtn/>
+
     </div>
   );
 } // ++ Try adding Next Post and Previous Post links

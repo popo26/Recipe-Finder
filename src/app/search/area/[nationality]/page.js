@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../../../../css/custom.css"
+import styles from "../../../../css/custom.css";
 import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
@@ -13,7 +13,6 @@ async function getMealsByArea(nationality) {
   const res = await fetch(
     `http://www.themealdb.com/api/json/v1/1/filter.php?a=${nationality}`,
     { method: "GET", mode: "cors" }
-
   );
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -28,7 +27,7 @@ export default async function MealsByArea({ params }) {
   console.log("Params", params);
   return (
     <div className="MealsByArea">
-          <h1>{params.nationality}</h1>
+      <h1>{params.nationality}</h1>
 
       <Box
         sx={{
@@ -53,13 +52,18 @@ export default async function MealsByArea({ params }) {
                 loading="lazy"
               />
               <Link href={`/search/menu/` + item.idMeal}>
-                <ImageListItemBar position="below" title={item.strMeal}  sx={{fontFamily:"Cascadia Mono" }} />
+                <ImageListItemBar
+                  position="below"
+                  title={item.strMeal}
+                  sx={{ fontFamily: "Cascadia Mono" }}
+                />
               </Link>
             </ImageListItem>
           ))}
         </ImageList>
+        <BackBtn />
+
       </Box>
-<BackBtn/>
     </div>
   );
 } // ++ Try adding Next Post and Previous Post links

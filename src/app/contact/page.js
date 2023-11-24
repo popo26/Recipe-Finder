@@ -122,46 +122,55 @@ const Button = styled(BaseButton)(
 export default function Contact() {
   return (
     <div className="Contact">
+            <BackBtn/>
+
       <h1>Contact</h1>
       {/* <form> */}
-        <Box
-          component="form"
-          sx={{
-            "& > :not(style)": { m: 1, width: "25ch" },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <TextField
-            label="First Name"
-            variant="standard"
-            color="success"
-            focused
-          />
-          <TextField
-            label="Last Name"
-            variant="standard"
-            color="success"
-            focused
-          />
-          <TextField label="Email" variant="standard" color="success" focused />
-        </Box>
-        <Textarea
-          aria-label="empty textarea"
-          placeholder="Say Hi!"
-          sx={{ fontFamily: "Cascadia Mono", padding: "20px", my: "20px" }}
+      <Box
+        component="form"
+        sx={{
+          "& > :not(style)": { m: 1, width: "25ch" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          label="First Name"
+          variant="standard"
+          color="success"
+          focused
         />
-        {/* <Stack spacing={2} direction="row"> */}
-        <Box>
-          <Button
-            sx={{ fontFamily: "Cascadia Mono", backgroundColor: "#308080" }}
-          >
-            Send
-          </Button>
-        </Box>
-        {/* </Stack> */}
+        <TextField
+          label="Last Name"
+          variant="standard"
+          color="success"
+          focused
+        />
+        <TextField label="Email" variant="standard" color="success" focused />
+      </Box>
+      <Textarea
+        aria-label="empty textarea"
+        placeholder="Say Hi!"
+        sx={{ fontFamily: "Cascadia Mono", padding: "20px", my: "20px" }}
+      />
+      {/* <Stack spacing={2} direction="row"> */}
+      <Box>
+        <Button
+          sx={{
+            fontFamily: "Cascadia Mono",
+            borderWidth: 1,
+            backgroundColor: "transparent",
+            color: "#308080",
+            borderRight:1,
+            borderColor: "#308080",
+            '&:hover':{backgroundColor:"#308080", color:"white"}
+          }}
+        >
+          Send
+        </Button>
+      </Box>
+      {/* </Stack> */}
       {/* </form> */}
-      <BackBtn/>
     </div>
   );
 }

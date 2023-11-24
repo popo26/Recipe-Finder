@@ -42,7 +42,16 @@ export default function Search({ searchTerm }) {
         <Button
           onClick={handleSubmit}
           variant="contained"
-          sx={{ fontFamily: "Cascadia Mono", backgroundColor: "#308080" }}
+          // sx={{ fontFamily: "Cascadia Mono", backgroundColor: "#308080", '&:hover':{backgroundColor:"transparent", color:"#308080"} }}
+          sx={{
+            fontFamily: "Cascadia Mono",
+            borderWidth: 1,
+            backgroundColor: "transparent",
+            color: "#308080",
+            borderRight:1,
+            borderColor: "#308080",
+            '&:hover':{backgroundColor:"#308080", color:"white"}
+          }}
         >
           Search
         </Button>
