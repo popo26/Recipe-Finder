@@ -1,5 +1,5 @@
 "use client";
-import styles from "../page.module.css";
+import "../page.module.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { TextareaAutosize as BaseTextareaAutosize } from "@mui/base/TextareaAutosize";

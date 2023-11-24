@@ -1,4 +1,4 @@
-import styles from "../../page.module.css";
+import "../../page.module.css";
 import Link from "next/link";
 import Search from "@/components/Search";
 

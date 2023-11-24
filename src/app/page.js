@@ -16,7 +16,6 @@ async function getRandomMeal() {
 
 export default async function HomePage() {
   const result = await getRandomMeal();
-  // const type = searchParams.type? searchParams.type:"Menu"
   return (
   
 

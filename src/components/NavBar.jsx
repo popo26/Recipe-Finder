@@ -10,7 +10,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-// import { NavLink } from "react-router-dom";
 import Link from "next/link";
 
 import MenuItem from "@mui/material/MenuItem";
@@ -19,7 +18,6 @@ import { MenuBook, Home } from "@mui/icons-material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Menu } from "@mui/material";
 
-import KeyboardArrowDownIcon from "@mui/icons-material/Cloud";
 
 const earthTheme = createTheme({
   palette: {
@@ -40,7 +38,6 @@ const earthTheme = createTheme({
 });
 
 export default function NavBar() {
-  //   const [anchorEl, setAnchorEl] = useState < null | HTMLElement > (null);
   const [anchorEl, setAnchorEl] = useState(false);
 
   const open = Boolean(anchorEl);
@@ -104,7 +101,6 @@ export default function NavBar() {
                     {" "}
                     <Link
                       href="/contact"
-                      // className={path.startsWith("/about") ? "active" : null}
                     >
                       Contact
                     </Link>

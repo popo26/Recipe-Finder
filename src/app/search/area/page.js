@@ -1,5 +1,5 @@
 "use client";
-import styles from "../../page.module.css";
+import "../../page.module.css";
 import Link from "next/link";
 import Flag from "react-world-flags";
 
@@ -15,6 +15,8 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import BackBtn from "@/components/BackBtn";
 import UpBtn from "@/components/UpBtn";
+import { Suspense } from "react";
+import Loading from "../loading";
 
 const flags = {
   American: "us",
@@ -70,8 +72,8 @@ export default async function Area() {
 
   return (
     <div className="Area">
-      <UpBtn/>
-                    <BackBtn />
+      <UpBtn />
+      <BackBtn />
 
       <h1>Meals by Area</h1>
 
@@ -116,14 +118,19 @@ export default async function Area() {
                           padding: "1em 1em 0 1em",
                           objectFit: "contain",
                           height: "100px",
-                          width:"90%",
-                          margin:"auto"
+                          width: "90%",
+                          margin: "auto",
                         }}
                       />
                     )}
 
                     <CardContent>
-                      <Typography gutterBottom variant="h5" component="div" sx={{fontFamily:"Cascadia Mono" }}>
+                      <Typography
+                        gutterBottom
+                        variant="h5"
+                        component="div"
+                        sx={{ fontFamily: "Cascadia Mono" }}
+                      >
                         {item.strArea}
                       </Typography>
                     </CardContent>
@@ -135,7 +142,6 @@ export default async function Area() {
         ) : (
           <p>Loading...</p>
         )}
-
       </Box>
     </div>
   );

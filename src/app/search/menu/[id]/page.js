@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../../../../css/custom.css";
+import "../../../../css/custom.css";
 import { Button } from "@mui/material";
 import Video from "@/components/Video";
 
