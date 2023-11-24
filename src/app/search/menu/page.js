@@ -18,7 +18,7 @@ async function getMealByName(name) {
     { method: "GET", mode: "cors" }
   );
   if (!res.ok) {
-    throw new Error("Failed to fetch post #" + name);
+    throw new Error("Failed to fetch data #" + name);
   }
   return res.json();
 }
@@ -77,7 +77,7 @@ export default async function Menu({ searchParams }) {
 
   return (
     <div className="Menu">
-      <UpBtn/>
+      <UpBtn />
       <BackBtn />
       <Search searchTerm={term} />
       <Box

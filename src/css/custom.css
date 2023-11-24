@@ -56,9 +56,9 @@
   margin-top: 20px;
 }
 
-.About-message{
+.About-message {
   max-width: 70%;
-  margin:auto;
+  margin: auto;
 }
 
 /* Contact */
@@ -92,6 +92,11 @@
   margin: auto;
   text-align: center;
 }
+
+.MoreDetail-accordion {
+  width: 80%;
+  margin: auto;
+}
 .back-btn {
   text-align: center;
   margin-top: 20px;
@@ -113,8 +118,6 @@
   /* min-height:100vh; */
 }
 
-
-
 .UpBtn {
   position: fixed;
   bottom: 0;
@@ -130,11 +133,43 @@
   background-color: rgb(177, 107, 243);
 }
 
-.Loading{
+.Loading {
   text-align: center;
-  padding:100px;
+  padding: 100px;
 }
 
-.Loading h1{
-  padding:20px;
+.Loading h1 {
+  padding: 20px;
+}
+
+.Error, .NotFound {
+  text-align: center;
+  padding: 100px;
+}
+
+.Error h1 {
+  color: chocolate;
+  font-size: 70px;
+}
+
+.Error-TryAgain-btn {
+  background-color: whitesmoke;
+  color: #308080;
+  border: 2px solid #308080;
+  padding: 6px;
+  font-size: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.Error-TryAgain-btn:hover {
+  background-color: #308080;
+  color: white;
+  border-style: none;
+}
+
+/* NotFound */
+.NotFound h1 {
+  color: chocolate;
+  font-size: 70px;
 }

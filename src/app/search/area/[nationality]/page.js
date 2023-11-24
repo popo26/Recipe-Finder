@@ -4,9 +4,7 @@ import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
-import ListSubheader from "@mui/material/ListSubheader";
 import BackBtn from "@/components/BackBtn";
-import { Button } from "@mui/material";
 import UpBtn from "@/components/UpBtn";
 
 async function getMealsByArea(nationality) {
@@ -16,16 +14,13 @@ async function getMealsByArea(nationality) {
     { method: "GET", mode: "cors" }
   );
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch post #" + nationality);
+    throw new Error("Failed to fetch list of " + nationality + " meals.");
   }
   return res.json();
 }
 
-// Uses params prop to get value of [id] from path segment
 export default async function MealsByArea({ params }) {
   const result = await getMealsByArea(params.nationality);
-  console.log("Params", params);
   return (
     <div className="MealsByArea">
       <UpBtn/>
@@ -43,9 +38,6 @@ export default async function MealsByArea({ params }) {
         }}
       >
         <ImageList variant="masonry"  gap={8} cols={3} >
-          {/* <ImageListItem key="Subheader" cols={4}>
-          <ListSubheader component="div">{params.nationality}</ListSubheader>
-        </ImageListItem> */}
           {result.meals.map((item) => (
             <ImageListItem key={item.idMeal}>
               <img
@@ -64,9 +56,7 @@ export default async function MealsByArea({ params }) {
             </ImageListItem>
           ))}
         </ImageList>
-        {/* <BackBtn /> */}
-
       </Box>
     </div>
   );
-} // ++ Try adding Next Post and Previous Post links
+} 

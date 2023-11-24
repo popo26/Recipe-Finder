@@ -6,18 +6,13 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import BackBtn from "@/components/BackBtn";
 import UpBtn from "@/components/UpBtn";
-import { Suspense } from "react";
-import Loading from "./loading";
 
 async function getIngredient() {
-  // await new Promise((resolve) => setTimeout(resolve, 3000));
-
   const res = await fetch(
     "http://www.themealdb.com/api/json/v1/1/list.php?i=list"
   );
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Fetch failed");
+    throw new Error("Failed to fetch ingredient list.");
   }
   return res.json();
 }
@@ -30,13 +25,10 @@ export default async function Ingredient() {
       <BackBtn />
       <h1>Available Ingredients</h1>
 
-      {/* <Suspense fallback={<Loading />}> */}
         <div className="Ingredient-list-div">
           {result ? (
             result.meals.map((item) => (
               <div key={item.idIngredient}>
-                {/* <h3 key={item.idIngredient}>{item.strIngredient}</h3>
-            <p >{item.strDescription}</p><br/> */}
 
                 <Accordion>
                   <AccordionSummary
@@ -61,7 +53,6 @@ export default async function Ingredient() {
           )}
           <BackBtn />
         </div>
-      {/* </Suspense> */}
     </div>
   );
 }

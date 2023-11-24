@@ -2,12 +2,9 @@
 import "../../page.module.css";
 import Link from "next/link";
 import Flag from "react-world-flags";
-
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
-
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -15,8 +12,6 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import BackBtn from "@/components/BackBtn";
 import UpBtn from "@/components/UpBtn";
-import { Suspense } from "react";
-import Loading from "../loading";
 
 const flags = {
   American: "us",
@@ -62,7 +57,7 @@ async function getArea() {
     "https://www.themealdb.com/api/json/v1/1/list.php?a=list"
   );
   if (!res.ok) {
-    throw new Error("Failed to fetch post #");
+    throw new Error("Failed to fetch Area list");
   }
   return res.json();
 }
@@ -74,9 +69,7 @@ export default async function Area() {
     <div className="Area">
       <UpBtn />
       <BackBtn />
-
       <h1>Meals by Area</h1>
-
       <Box
         sx={{
           display: "flex",
@@ -91,7 +84,6 @@ export default async function Area() {
           result.meals.map((item) => (
             <div key={item.strArea}>
               <Link href={`/search/area/${item.strArea}`}>
-                {/* <Card sx={{ maxWidth: 345 }}> */}
                 <Card
                   sx={{
                     width: 280,

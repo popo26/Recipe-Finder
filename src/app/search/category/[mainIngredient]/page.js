@@ -6,34 +6,29 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 import ListSubheader from "@mui/material/ListSubheader";
 import IconButton from "@mui/material/IconButton";
 import InfoIcon from "@mui/icons-material/Info";
-import { Box } from "@mui/material";
-import useMediaQuery from "@mui/material";
 import UpBtn from "@/components/UpBtn";
 
 async function getMealsBySelectedMainIngredient(mainIngredient) {
-  console.log("path", mainIngredient);
   const res = await fetch(
     `http://www.themealdb.com/api/json/v1/1/filter.php?c=${mainIngredient}`
   );
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch post #" + mainIngredient);
+    throw new Error("Failed to fetch " + mainIngredient + " list.");
   }
   return res.json();
 }
 
-// Uses params prop to get value of [id] from path segment
 export default async function MealsBySelectedMainIngredient({ params }) {
   const result = await getMealsBySelectedMainIngredient(params.mainIngredient);
-  //console.log("Params", params);
   return (
     <div>
-      <UpBtn/>
+      <UpBtn />
       <ImageList>
-        {/* <ImageList sx={{ width: 1, objectFit: "contain", p: "20px" }}> */}
-        {/* <ImageListItem key="Subheader" cols={2}> */}
         <ImageListItem key="Subheader" cols={5}>
-          <ListSubheader component="div">{params.mainIngredient}<BackBtn/></ListSubheader>
+          <ListSubheader component="div">
+            {params.mainIngredient}
+            <BackBtn />
+          </ListSubheader>
         </ImageListItem>
 
         {result ? (
@@ -43,8 +38,6 @@ export default async function MealsBySelectedMainIngredient({ params }) {
                 <img
                   srcSet={`${item.strMealThumb}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   src={`${item.strMealThumb}?w=248&fit=crop&auto=format`}
-                  // srcSet={item.strMealThumb}
-                  // src={item.strMealThumb}
                   alt={item.strMeal}
                   loading="lazy"
                   sx={{
@@ -57,7 +50,6 @@ export default async function MealsBySelectedMainIngredient({ params }) {
 
                 <ImageListItemBar
                   title={item.strMeal}
-                  // subtitle={item.author}
                   actionIcon={
                     <IconButton
                       sx={{ color: "rgba(255, 255, 255, 0.54)" }}
@@ -74,7 +66,6 @@ export default async function MealsBySelectedMainIngredient({ params }) {
           <p>Loading...</p>
         )}
       </ImageList>
-      {/* </Box> */}
     </div>
   );
-} // ++ Try adding Next Post and Previous Post links
+}

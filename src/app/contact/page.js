@@ -67,7 +67,6 @@ const Textarea = styled(BaseTextareaAutosize)(
 );
 
 //MUI-Button
-
 const Button = styled(BaseButton)(
   ({ theme }) => `
   font-family: IBM Plex Sans, sans-serif;
@@ -125,7 +124,6 @@ export default function Contact() {
             <BackBtn/>
 
       <h1>Contact</h1>
-      {/* <form> */}
       <Box
         component="form"
         sx={{
@@ -153,7 +151,6 @@ export default function Contact() {
         placeholder="Say Hi!"
         sx={{ fontFamily: "Cascadia Mono", padding: "20px", my: "20px" }}
       />
-      {/* <Stack spacing={2} direction="row"> */}
       <Box>
         <Button
           sx={{
@@ -169,8 +166,6 @@ export default function Contact() {
           Send
         </Button>
       </Box>
-      {/* </Stack> */}
-      {/* </form> */}
     </div>
   );
 }

@@ -1,14 +1,11 @@
 import "../../page.module.css";
 import Link from "next/link";
-
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
-
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -21,8 +18,7 @@ async function getMealCategory() {
     "http://www.themealdb.com/api/json/v1/1/categories.php"
   );
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch post #" + type);
+    throw new Error("Failed to fetch categories");
   }
   return res.json();
 }

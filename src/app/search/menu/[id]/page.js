@@ -1,54 +1,39 @@
-import Link from "next/link";
 import "../../../../css/custom.css";
-import { Button } from "@mui/material";
-import Video from "@/components/Video";
-
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Box } from "@mui/material";
 import BackBtn from "@/components/BackBtn";
 
 async function getMealDetail(id) {
-  console.log("path", id);
+  // console.log("path", id);
   const res = await fetch(
     `http://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
   );
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch post #" + id);
+    throw new Error("Failed to fetch meal #" + id);
   }
   return res.json();
 }
 
-// Uses params prop to get value of [id] from path segment
 export default async function MealDetail({ params }) {
   const result = await getMealDetail(params.id);
-  //console.log("Params", params);
-
-  const x = result.meals[0];
+  const mealResult = result.meals[0];
   let strIngredientArray = [];
   let strMeasureArray = [];
-  for (let y in x) {
-    if (y.includes("strIngredient") && x[y] !== "") {
-      strIngredientArray.push(x[y]);
+
+  for (let key in mealResult) {
+    if (key.includes("strIngredient") && mealResult[key] !== "") {
+      strIngredientArray.push(mealResult[key]);
     }
   }
 
-  for (let y in x) {
-    if (y.includes("strMeasure") && x[y] !== "") {
-      strMeasureArray.push(x[y]);
+  for (let key in mealResult) {
+    if (key.includes("strMeasure") && mealResult[key] !== "") {
+      strMeasureArray.push(mealResult[key]);
     }
   }
-
-  // console.log("ingredent", strIngredientArray);
-  // console.log("measurement", strMeasureArray);
 
   const ingredientsList = strIngredientArray.map((item) => (
     <p>
@@ -58,7 +43,7 @@ export default async function MealDetail({ params }) {
 
   return (
     <div className="MealDetail">
-            <BackBtn/>
+      <BackBtn />
 
       {result ? (
         <>
@@ -82,51 +67,37 @@ export default async function MealDetail({ params }) {
               {result.meals[0].strArea}
             </h4>
           </div>
-
-          <Accordion>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel2a-content"
-              id="panel2a-header"
-            >
-              <Typography
-                gutterBottom
-                variant="9"
-                component="div"
-                sx={{ fontFamily: "Cascadia Mono" }}
+          <div className="MoreDetail-accordion">
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel2a-content"
+                id="panel2a-header"
               >
-                Instructions
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                sx={{ fontFamily: "Cascadia Mono" }}
-              >
-                {result.meals[0].strInstructions}
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
+                <Typography
+                  gutterBottom
+                  variant="9"
+                  component="div"
+                  sx={{ fontFamily: "Cascadia Mono" }}
+                >
+                  Instructions
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ fontFamily: "Cascadia Mono" }}
+                >
+                  {result.meals[0].strInstructions}
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </div>
         </>
       ) : (
         <p>Loading...</p>
       )}
-      {/* <div className="back-btn">
-        <Link href="/search/category">
-          <Button
-            sx={{
-              fontFamily: "Cascadia Mono",
-              backgroundColor: "#308080",
-              color: "white",
-            }}
-          >
-            Back to All Categories
-          </Button>
-        </Link>
-
-      </div> */}
-
     </div>
   );
-} // ++ Try adding Next Post and Previous Post links
+}
