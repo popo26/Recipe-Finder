@@ -23,8 +23,8 @@ export default async function MealsByArea({ params }) {
   const result = await getMealsByArea(params.nationality);
   return (
     <div className="MealsByArea">
-      <UpBtn/>
-      <BackBtn/>
+      <UpBtn />
+      <BackBtn />
       <h1>{params.nationality}</h1>
 
       <Box
@@ -37,26 +37,26 @@ export default async function MealsByArea({ params }) {
           width: "90vw",
         }}
       >
-        <ImageList variant="masonry"  gap={8} cols={3} >
+        <ImageList variant="masonry" gap={8} cols={3}>
           {result.meals.map((item) => (
-            <ImageListItem key={item.idMeal}>
-              <img
-                srcSet={`${item.strMealThumb}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                src={`${item.strMealThumb}?w=248&fit=crop&auto=format`}
-                alt={item.strMeal}
-                loading="lazy"
-              />
-              <Link href={`/search/menu/` + item.idMeal}>
+            <Link href={`/search/menu/` + item.idMeal}>
+              <ImageListItem key={item.idMeal}>
+                <img
+                  srcSet={`${item.strMealThumb}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                  src={`${item.strMealThumb}?w=248&fit=crop&auto=format`}
+                  alt={item.strMeal}
+                  loading="lazy"
+                />
                 <ImageListItemBar
                   position="below"
                   title={item.strMeal}
                   sx={{ fontFamily: "Cascadia Mono" }}
                 />
-              </Link>
-            </ImageListItem>
+              </ImageListItem>
+            </Link>
           ))}
         </ImageList>
       </Box>
     </div>
   );
-} 
+}

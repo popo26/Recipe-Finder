@@ -24,13 +24,23 @@ export default async function MealDetail({ params }) {
   let strMeasureArray = [];
 
   for (let key in mealResult) {
-    if (key.includes("strIngredient") && mealResult[key] !== "") {
+    if (
+      key.includes("strIngredient") &&
+      mealResult[key] !== "" &&
+      key.includes("strIngredient") &&
+      mealResult[key] !== null
+    ) {
       strIngredientArray.push(mealResult[key]);
     }
   }
 
   for (let key in mealResult) {
-    if (key.includes("strMeasure") && mealResult[key] !== "") {
+    if (
+      key.includes("strMeasure") &&
+      mealResult[key] !== "" &&
+      key.includes("strMeasure") &&
+      mealResult[key] !== null
+    ) {
       strMeasureArray.push(mealResult[key]);
     }
   }
