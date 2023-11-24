@@ -7,6 +7,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import BackBtn from "@/components/BackBtn";
 import PaginationRounded from "@/components/Pagination";
 import Search from "@/components/Search";
+import UpBtn from "@/components/UpBtn";
 
 async function getIngredient() {
   const res = await fetch(
@@ -23,6 +24,7 @@ export default async function Ingredient() {
   const result = await getIngredient();
   return (
     <div className="Ingredient">
+      <UpBtn />
       <BackBtn/>
       <h1>Available Ingredients</h1>
 

@@ -1,42 +1,6 @@
 "use client"; // client component, not server rendered
 import styles from "../css/custom.css";
 
-// import Link from "next/link";
-// import { usePathname } from "next/navigation";
-// // copied from previous NavBar.jsx component, modified for Next.js
-// // save as src/components/NavBar.jsx
-// export default function NavBar() {
-//   const path = usePathname(); // hook to check current path
-//   return (
-//     <nav
-//       className="NavBar"
-//     >
-//       <ul className="menu">
-//         {/* Next.js Link components use href instead of to prop */}
-//         <li>
-//           <Link href="/">Home</Link>
-//         </li>
-//         <li>
-//           <Link
-//             href="/about"
-//             className={path.startsWith("/about") ? "active" : null}
-//           >
-//             About
-//           </Link>
-//         </li>
-//         <li>
-//           <Link
-//             href="/contact"
-//             className={path.startsWith("/contact") ? "active" : null}
-//           >
-//             Contact
-//           </Link>
-//         </li>
-//       </ul>
-//     </nav>
-//   );
-// }
-
 import * as React from "react";
 import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
@@ -56,16 +20,6 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Menu } from "@mui/material";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/Cloud";
-
-// const darkTheme = createTheme({
-//   palette: {
-//     mode: "dark",
-
-//     primary: {
-//       main: "#1976d2",
-//     },
-//   },
-// });
 
 const earthTheme = createTheme({
   palette: {
@@ -101,8 +55,6 @@ export default function NavBar() {
     <div className="NavBar">
       <Box sx={{ flexGrow: 1 }}>
         <ThemeProvider theme={earthTheme}>
-          {/* <ThemeProvider theme={customTheme}> */}
-
           <AppBar position="static">
             <Toolbar>
               <IconButton
@@ -112,7 +64,6 @@ export default function NavBar() {
                 aria-label="menu"
                 sx={{ mr: 2 }}
                 style={{ color: "#808080" }}
-           
               >
                 <MenuIcon
                   color="inherit"

@@ -14,6 +14,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import BackBtn from "@/components/BackBtn";
+import UpBtn from "@/components/UpBtn";
 
 const flags = {
   American: "us",
@@ -69,6 +70,7 @@ export default async function Area() {
 
   return (
     <div className="Area">
+      <UpBtn/>
                     <BackBtn />
 
       <h1>Meals by Area</h1>

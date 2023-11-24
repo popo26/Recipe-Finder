@@ -8,6 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import InfoIcon from "@mui/icons-material/Info";
 import { Box } from "@mui/material";
 import useMediaQuery from "@mui/material";
+import UpBtn from "@/components/UpBtn";
 
 async function getMealsBySelectedMainIngredient(mainIngredient) {
   console.log("path", mainIngredient);
@@ -27,38 +28,12 @@ export default async function MealsBySelectedMainIngredient({ params }) {
   //console.log("Params", params);
   return (
     <div>
-      {/* <div>
-        {result ? (
-          result.meals.map((item) => (
-            <>
-              <h3 key={item.idMeal}>
-
-                <Link href={`/search/menu/` + item.idMeal}>{item.strMeal}</Link>
-              </h3>
-              <img src={item.strMealThumb} alt={item.strMeal} width="100px" />
-            </>
-          ))
-        ) : (
-          <p>Loading...</p>
-        )}
-      </div>
-      <Link href="/search/category">All Categories</Link> */}
-
-      {/* <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "20px",
-          flexWrap: "wrap",
-          margin: "auto",
-          width: "90vw",
-        }}
-      > */}
+      <UpBtn/>
       <ImageList>
         {/* <ImageList sx={{ width: 1, objectFit: "contain", p: "20px" }}> */}
         {/* <ImageListItem key="Subheader" cols={2}> */}
         <ImageListItem key="Subheader" cols={5}>
-          <ListSubheader component="div">{params.mainIngredient}</ListSubheader>
+          <ListSubheader component="div">{params.mainIngredient}<BackBtn/></ListSubheader>
         </ImageListItem>
 
         {result ? (
@@ -98,11 +73,8 @@ export default async function MealsBySelectedMainIngredient({ params }) {
         ) : (
           <p>Loading...</p>
         )}
-
       </ImageList>
       {/* </Box> */}
-      <BackBtn/>
-
     </div>
   );
 } // ++ Try adding Next Post and Previous Post links

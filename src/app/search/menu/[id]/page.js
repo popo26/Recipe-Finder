@@ -58,6 +58,8 @@ export default async function MealDetail({ params }) {
 
   return (
     <div className="MealDetail">
+            <BackBtn/>
+
       {result ? (
         <>
           <h1>{result.meals[0].strMeal}</h1>
@@ -124,7 +126,6 @@ export default async function MealDetail({ params }) {
         </Link>
 
       </div> */}
-      <BackBtn/>
 
     </div>
   );

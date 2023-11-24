@@ -7,6 +7,7 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 import ListSubheader from "@mui/material/ListSubheader";
 import BackBtn from "@/components/BackBtn";
 import { Button } from "@mui/material";
+import UpBtn from "@/components/UpBtn";
 
 async function getMealsByArea(nationality) {
   console.log("path", nationality);
@@ -27,6 +28,8 @@ export default async function MealsByArea({ params }) {
   console.log("Params", params);
   return (
     <div className="MealsByArea">
+      <UpBtn/>
+      <BackBtn/>
       <h1>{params.nationality}</h1>
 
       <Box
@@ -39,7 +42,7 @@ export default async function MealsByArea({ params }) {
           width: "90vw",
         }}
       >
-        <ImageList variant="masonry" cols={4} gap={8}>
+        <ImageList variant="masonry"  gap={8} cols={3} >
           {/* <ImageListItem key="Subheader" cols={4}>
           <ListSubheader component="div">{params.nationality}</ListSubheader>
         </ImageListItem> */}
@@ -61,7 +64,7 @@ export default async function MealsByArea({ params }) {
             </ImageListItem>
           ))}
         </ImageList>
-        <BackBtn />
+        {/* <BackBtn /> */}
 
       </Box>
     </div>

@@ -10,6 +10,7 @@ import { Box } from "@mui/material";
 
 import { CardActionArea } from "@mui/material";
 import BackBtn from "@/components/BackBtn";
+import UpBtn from "@/components/UpBtn";
 
 async function getMealByName(name) {
   const res = await fetch(
@@ -75,7 +76,8 @@ export default async function Menu({ searchParams }) {
   }
 
   return (
-    <div>
+    <div className="Menu">
+      <UpBtn/>
       <BackBtn />
       <Search searchTerm={term} />
       <Box
