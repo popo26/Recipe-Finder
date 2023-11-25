@@ -5,7 +5,6 @@ import TextField from "@mui/material/TextField";
 import { TextareaAutosize as BaseTextareaAutosize } from "@mui/base/TextareaAutosize";
 import { styled } from "@mui/system";
 import { Button as BaseButton } from "@mui/base/Button";
-import Stack from "@mui/material/Stack";
 import BackBtn from "@/components/BackBtn";
 
 //MUI - Textarea-autosize
@@ -119,53 +118,151 @@ const Button = styled(BaseButton)(
 );
 
 export default function Contact() {
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    formData.append(
+      "access_key",
+      process.env.NEXT_PUBLIC_WEB3_CONTACT_FORM_ACCESS_KEY
+    );
+
+    console.log("formData", Object.fromEntries(formData));
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    });
+    const result = await response.json();
+    if (result.success) {
+      console.log(result);
+    }
+  }
+
   return (
     <div className="Contact">
-            <BackBtn/>
+      <BackBtn />
 
       <h1>Contact</h1>
-      <Box
-        component="form"
-        sx={{
-          "& > :not(style)": { m: 1, width: "25ch" },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <TextField
-          label="First Name"
-          variant="standard"
-          color="success"
-          focused
+      <form onSubmit={handleSubmit}>
+        <input
+          type="hidden"
+          name="subject"
+          value="New Email from Recipe Finder"
         />
-        <TextField
-          label="Last Name"
-          variant="standard"
-          color="success"
-          focused
-        />
-        <TextField label="Email" variant="standard" color="success" focused />
-      </Box>
-      <Textarea
-        aria-label="empty textarea"
-        placeholder="Say Hi!"
-        sx={{ fontFamily: "Cascadia Mono", padding: "20px", my: "20px" }}
-      />
-      <Box>
-        <Button
+        <input type="hidden" name="from_name" value="Recipe Finder" />
+
+        <Box
+          component="form"
           sx={{
-            fontFamily: "Cascadia Mono",
-            borderWidth: 1,
-            backgroundColor: "transparent",
-            color: "#308080",
-            borderRight:1,
-            borderColor: "#308080",
-            '&:hover':{backgroundColor:"#308080", color:"white"}
+            "& > :not(style)": { m: 1, width: "25ch" },
           }}
+          noValidate
+          autoComplete="off"
         >
-          Send
-        </Button>
-      </Box>
+          <TextField
+            label="First Name"
+            variant="standard"
+            color="success"
+            focused
+            name="fname"
+          />
+          <TextField
+            label="Last Name"
+            variant="standard"
+            color="success"
+            focused
+            name="lname"
+          />
+          <TextField
+            label="Email"
+            variant="standard"
+            color="success"
+            focused
+            name="email"
+          />
+        </Box>
+        <Textarea
+          aria-label="empty textarea"
+          placeholder="Say Hi!"
+          sx={{ fontFamily: "Cascadia Mono", padding: "20px", my: "20px" }}
+          name="message"
+        />
+        <Box>
+          <Button
+            sx={{
+              fontFamily: "Cascadia Mono",
+              borderWidth: 1,
+              backgroundColor: "transparent",
+              color: "#308080",
+              borderRight: 1,
+              borderColor: "#308080",
+              "&:hover": { backgroundColor: "#308080", color: "white" },
+            }}
+            type="submit"
+          >
+            Send
+          </Button>
+        </Box>
+      </form>
     </div>
   );
 }
+
+//   return (
+//     <div className="Contact">
+//             <BackBtn/>
+
+//       <h1>Contact</h1>
+//       <Box
+//         component="form"
+//         sx={{
+//           "& > :not(style)": { m: 1, width: "25ch" },
+//         }}
+//         noValidate
+//         autoComplete="off"
+//       >
+//         <TextField
+//           label="First Name"
+//           variant="standard"
+//           color="success"
+//           focused
+//         />
+//         <TextField
+//           label="Last Name"
+//           variant="standard"
+//           color="success"
+//           focused
+//         />
+//         <TextField label="Email" variant="standard" color="success" focused />
+//       </Box>
+//       <Textarea
+//         aria-label="empty textarea"
+//         placeholder="Say Hi!"
+//         sx={{ fontFamily: "Cascadia Mono", padding: "20px", my: "20px" }}
+//       />
+//       <Box>
+//         <Button
+//           sx={{
+//             fontFamily: "Cascadia Mono",
+//             borderWidth: 1,
+//             backgroundColor: "transparent",
+//             color: "#308080",
+//             borderRight:1,
+//             borderColor: "#308080",
+//             '&:hover':{backgroundColor:"#308080", color:"white"}
+//           }}
+//         >
+//           Send
+//         </Button>
+//       </Box>
+//     </div>
+//   );
+// }

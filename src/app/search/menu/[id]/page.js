@@ -46,7 +46,7 @@ export default async function MealDetail({ params }) {
   }
 
   const ingredientsList = strIngredientArray.map((item) => (
-    <p>
+    <p key={strIngredientArray.indexOf(item)}>
       {item} : {strMeasureArray[strIngredientArray.indexOf(item)]}
     </p>
   ));
