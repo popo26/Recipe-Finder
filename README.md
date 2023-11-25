@@ -39,4 +39,3 @@ Recipe Finder is an interactive application that allows user to find an inspirat
 - Ingredient Page : it dispalys a list of ingredient information.
 - About Page: fake biography of author.
 - Contact Page: user can send message to the author.
->>>>>>> 7397ca4fc99a12a13c73b0389eabab35e99e6f0a
