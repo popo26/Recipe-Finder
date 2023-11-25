@@ -8,8 +8,7 @@ import Link from "next/link";
 async function getRandomMeal() {
   const res = await fetch("http://www.themealdb.com/api/json/v1/1/random.php");
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch post #" + type);
+    throw new Error("Failed to fetch random meal");
   }
   return res.json();
 }

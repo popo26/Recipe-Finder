@@ -10,17 +10,15 @@ export default function SearchLinks() {
   const router = useRouter();
   // const type = searchParams.has("type") ? searchParams.get("type"): defaultType;
   const type = searchParams.has("type") && searchParams.get("type");
-
-  const [selectedChoice, setSelectedChoice] = useState(type)
-
+  //const [selectedChoice, setSelectedChoice] = useState(type)
 
   const handleChangeSearchType = (e) => {
     router.replace(pathname + "/search/" + e.target.value.toLowerCase());
     router.push(`/search/${e.target.value.toLowerCase()}`)
-    setSelectedChoice(e.target.value)
+    //setSelectedChoice(e.target.value)
   };
 
-  console.log(selectedChoice)
+  //console.log(selectedChoice)
 
   return (
     <div >
@@ -30,7 +28,6 @@ export default function SearchLinks() {
           <select onChange={handleChangeSearchType} value={type}>
           <option>Select From </option>
 
-            {/* <option>Ingredient</option> */}
             <option>Area</option>
             <option>Category</option>
             <option>Menu</option>
