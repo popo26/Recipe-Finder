@@ -6,8 +6,8 @@ export default function useGetData(url) {
     let ignore = false;
     if (url) {
       fetch(url, {
-        method:"GET",
-        mode:'cors'
+        method: "GET",
+        mode: "cors",
       })
         .then((response) => response.json())
         .then((result) => {

@@ -21,7 +21,7 @@ The second mini-project is designed to cover the React concepts learned in modul
 - [X] What kinds of React hooks have you used (eg. state, context, effect, navigate)?How? ---> useState to capture user's search keyword entry. useSearchParams, usePathname, and useRouter to patth the search keyword to backend API fetch in page.jsx.
 - [ ] Have you created and used any custom hooks?
 - [X] What external tools/libraries have you used (eg. bootstrap/axios/MUI)? How? Why? ---> MUI(for beautiful display and icons), dotenv(to avoid exposing access key for Web3forms), react-world-flag(to display flags in Area Page)
-- [X] How might you extend the features of your application in future? ---> Pagination, Filtering functionality in Area, Category, and Ingredient pages. 
+- [X] How might you extend the features of your application in future? ---> Pagination. Filtering functionality in Area, Category, and Ingredient. pages. Responsiveness to MUI ImageLists. Slug instead of idMeal.
 
 
 ------
@@ -37,7 +37,7 @@ Recipe Finder is an interactive application that allows an user to give inspirat
 
 ### Features
 
-- <strong><em>>Home Page("/")</strong></em> : A random meal is displayed. Also user can search meals by 3 choices - Area, Category, and Menu.
+- <strong><em>Home Page("/")</strong></em> : A random meal is displayed. Also user can search meals by 3 choices - Area, Category, and Menu.
 - <strong><em>Menu page("/search/menu")</strong></em>: User can search individual meal by menu name - e.g., curry, then select individual meal.
 - <strong><em>Area Page("/search/area") and Category Page("/search/category") </strong></em>: User is displayed with list of meals by Area or Category, then select individual meal.
 - <strong><em>Individual Meal Page("/search/menu/[:id]")</strong></em>: It displays ingredients, meal photo, and cooking instructions.

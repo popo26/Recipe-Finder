@@ -1,16 +1,15 @@
 import "../../page.module.css";
 import Link from "next/link";
 import Search from "@/components/Search";
-
+import BackBtn from "@/components/BackBtn";
+import UpBtn from "@/components/UpBtn";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
-
 import { CardActionArea } from "@mui/material";
-import BackBtn from "@/components/BackBtn";
-import UpBtn from "@/components/UpBtn";
+
 
 async function getMealByName(name) {
   const res = await fetch(

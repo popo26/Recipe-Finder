@@ -6,6 +6,7 @@ import { TextareaAutosize as BaseTextareaAutosize } from "@mui/base/TextareaAuto
 import { styled } from "@mui/system";
 import { Button as BaseButton } from "@mui/base/Button";
 import BackBtn from "@/components/BackBtn";
+import { useState } from "react";
 
 //MUI - Textarea-autosize
 const blue = {
@@ -118,18 +119,22 @@ const Button = styled(BaseButton)(
 );
 
 export default function Contact() {
+  const [fName, setFName] = useState("");
+  const [lName, setLName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
   async function handleSubmit(event) {
     event.preventDefault();
-    const formData = new FormData(event.target);
-
-    formData.append(
-      "access_key",
-      process.env.NEXT_PUBLIC_WEB3_CONTACT_FORM_ACCESS_KEY
-    );
-
-    console.log("formData", Object.fromEntries(formData));
-
-    const object = Object.fromEntries(formData);
+    const object = {
+      "First name": fName,
+      "Last name": lName,
+      Email: email,
+      Message: message,
+      from_name: event.target.from_name.value,
+      subject: event.target.subject.value,
+      access_key: process.env.NEXT_PUBLIC_WEB3_CONTACT_FORM_ACCESS_KEY,
+    };
     const json = JSON.stringify(object);
 
     const response = await fetch("https://api.web3forms.com/submit", {
@@ -139,11 +144,28 @@ export default function Contact() {
         Accept: "application/json",
       },
       body: json,
-    });
-    const result = await response.json();
-    if (result.success) {
-      console.log(result);
-    }
+    })
+      .then(async (response) => {
+        const result = await response.json();
+        if (result.success) {
+          console.log(result);
+          alert(
+            `Thanks, ${
+              fName.charAt(0).toUpperCase() + fName.slice(1)
+            }! Successfully sent.`
+          );
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .then(function () {
+        //reset form
+        setFName("");
+        setLName("");
+        setEmail("");
+        setMessage("");
+      });
   }
 
   return (
@@ -151,118 +173,71 @@ export default function Contact() {
       <BackBtn />
 
       <h1>Contact</h1>
-      <form onSubmit={handleSubmit}>
+      <Box
+        component="form"
+        sx={{
+          "& > :not(style)": { m: 1, width: "25ch" },
+        }}
+        noValidate
+        autoComplete="off"
+        onSubmit={handleSubmit}
+      >
         <input
           type="hidden"
           name="subject"
           value="New Email from Recipe Finder"
         />
         <input type="hidden" name="from_name" value="Recipe Finder" />
-
-        <Box
-          component="form"
-          sx={{
-            "& > :not(style)": { m: 1, width: "25ch" },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <TextField
-            label="First Name"
-            variant="standard"
-            color="success"
-            focused
-            name="fname"
-          />
-          <TextField
-            label="Last Name"
-            variant="standard"
-            color="success"
-            focused
-            name="lname"
-          />
-          <TextField
-            label="Email"
-            variant="standard"
-            color="success"
-            focused
-            name="email"
-          />
-        </Box>
+        <TextField
+          label="First Name"
+          variant="standard"
+          color="success"
+          focused
+          name="fname"
+          value={fName}
+          onChange={(e) => setFName(e.target.value)}
+        />
+        <TextField
+          label="Last Name"
+          variant="standard"
+          color="success"
+          focused
+          name="lname"
+          value={lName}
+          onChange={(e) => setLName(e.target.value)}
+        />
+        <TextField
+          label="Email"
+          variant="standard"
+          color="success"
+          focused
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
         <Textarea
           aria-label="empty textarea"
           placeholder="Say Hi!"
           sx={{ fontFamily: "Cascadia Mono", padding: "20px", my: "20px" }}
           name="message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
         />
-        <Box>
-          <Button
-            sx={{
-              fontFamily: "Cascadia Mono",
-              borderWidth: 1,
-              backgroundColor: "transparent",
-              color: "#308080",
-              borderRight: 1,
-              borderColor: "#308080",
-              "&:hover": { backgroundColor: "#308080", color: "white" },
-            }}
-            type="submit"
-          >
-            Send
-          </Button>
-        </Box>
-      </form>
+        <Button
+          sx={{
+            fontFamily: "Cascadia Mono",
+            borderWidth: 1,
+            backgroundColor: "transparent",
+            color: "#308080",
+            borderRight: 1,
+            borderColor: "#308080",
+            "&:hover": { backgroundColor: "#308080", color: "white" },
+          }}
+          type="submit"
+        >
+          Send
+        </Button>
+      </Box>
     </div>
   );
 }
-
-//   return (
-//     <div className="Contact">
-//             <BackBtn/>
-
-//       <h1>Contact</h1>
-//       <Box
-//         component="form"
-//         sx={{
-//           "& > :not(style)": { m: 1, width: "25ch" },
-//         }}
-//         noValidate
-//         autoComplete="off"
-//       >
-//         <TextField
-//           label="First Name"
-//           variant="standard"
-//           color="success"
-//           focused
-//         />
-//         <TextField
-//           label="Last Name"
-//           variant="standard"
-//           color="success"
-//           focused
-//         />
-//         <TextField label="Email" variant="standard" color="success" focused />
-//       </Box>
-//       <Textarea
-//         aria-label="empty textarea"
-//         placeholder="Say Hi!"
-//         sx={{ fontFamily: "Cascadia Mono", padding: "20px", my: "20px" }}
-//       />
-//       <Box>
-//         <Button
-//           sx={{
-//             fontFamily: "Cascadia Mono",
-//             borderWidth: 1,
-//             backgroundColor: "transparent",
-//             color: "#308080",
-//             borderRight:1,
-//             borderColor: "#308080",
-//             '&:hover':{backgroundColor:"#308080", color:"white"}
-//           }}
-//         >
-//           Send
-//         </Button>
-//       </Box>
-//     </div>
-//   );
-// }
