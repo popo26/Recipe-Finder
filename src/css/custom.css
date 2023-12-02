@@ -173,3 +173,14 @@
   color: chocolate;
   font-size: 70px;
 }
+
+
+/* Contact */
+.Contact-contents{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+

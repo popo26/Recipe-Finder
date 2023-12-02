@@ -1,6 +1,5 @@
 "use client"; // client component, not server rendered
 import styles from "../css/custom.css";
-
 import * as React from "react";
 import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
@@ -11,10 +10,8 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
-
 import MenuItem from "@mui/material/MenuItem";
 import { MenuBook, Home } from "@mui/icons-material";
-
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Menu } from "@mui/material";
 

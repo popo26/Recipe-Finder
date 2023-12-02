@@ -22,7 +22,6 @@ async function getMealByName(name) {
   return res.json();
 }
 
-// export default async function Menu() {
 export default async function Menu({ searchParams }) {
   const term = searchParams.term ? searchParams.term : "";
 

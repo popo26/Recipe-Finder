@@ -17,8 +17,7 @@ export default function Search({ searchTerm }) {
     setKeyword(e.target.value);
   };
 
-  // console.log("keyword", keyword);
-  // console.log("term", term);
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
