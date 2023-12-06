@@ -46,3 +46,16 @@ Recipe Finder is an interactive application that allows an user to give inspirat
 - <strong><em>Contact Page("/contact")</strong></em>: User can send message to the author.
 - <strong><em>Page Not Found(404) Page</strong></em>: This displays when non-existent routes are visited.
 - <strong><em>Error Page</strong></em>: This displays when an error occurs, e,g, issue retrieving data.
+
+-----
+# How to Run Locally
+1. Download the zip or clone the code.
+2. Open your terminal and locate `Recipe-Finder-main` directory.
+3. `npm i` to install dependency.
+4. Create `.env` file at the root of the directory.
+5. Go to [Web3Forms](https://web3forms.com/) to create your access key.
+6. Add this line in your `.env` file. NEXT_PUBLIC_WEB3_CONTACT_FORM_ACCESS_KEY=[*YOUR OWN ACCESS KEY*]
+7. `npm run dev` to start the application.
+
+
+
