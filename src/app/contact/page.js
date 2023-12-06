@@ -181,6 +181,7 @@ export default function Contact() {
         noValidate
         autoComplete="off"
         onSubmit={handleSubmit}
+        className="Contact-contents"
       >
         <input
           type="hidden"
