@@ -1,4 +1,4 @@
-"use client";
+import { v4 as uuidv4 } from "uuid";
 import "../../page.module.css";
 import Link from "next/link";
 import Flag from "react-world-flags";
@@ -43,14 +43,6 @@ const flags = {
   Unknown: "unknown",
   Vietnamese: "vn",
 };
-//MUI - Grid
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
 
 async function getArea() {
   const res = await fetch(
@@ -82,7 +74,7 @@ export default async function Area() {
       >
         {result ? (
           result.meals.map((item) => (
-            <div key={item.strArea}>
+            <div key={uuidv4()}>
               <Link href={`/search/area/${item.strArea}`}>
                 <Card
                   sx={{

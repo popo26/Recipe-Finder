@@ -1,7 +1,6 @@
 "use client";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
-import styles from "../css/custom.css";
+import "../css/custom.css";
 import { useState } from "react";
 import { Button } from "@mui/material";
 
@@ -13,11 +12,8 @@ export default function Search({ searchTerm }) {
   let term = searchParams.has("term") ? searchParams.get("term") : searchTerm;
 
   const handleChange = (e) => {
-    console.log(e.target.value);
     setKeyword(e.target.value);
   };
-
- 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,7 +24,6 @@ export default function Search({ searchTerm }) {
   return (
     <div className="Search">
       <h1>Search by name</h1>
-      {/* <form onSubmit={handleSubmit}> */}
       <form>
         <label htmlFor="searchByName" />
         <input
@@ -41,15 +36,14 @@ export default function Search({ searchTerm }) {
         <Button
           onClick={handleSubmit}
           variant="contained"
-          // sx={{ fontFamily: "Cascadia Mono", backgroundColor: "#308080", '&:hover':{backgroundColor:"transparent", color:"#308080"} }}
           sx={{
             fontFamily: "Cascadia Mono",
             borderWidth: 1,
             backgroundColor: "transparent",
             color: "#308080",
-            borderRight:1,
+            borderRight: 1,
             borderColor: "#308080",
-            '&:hover':{backgroundColor:"#308080", color:"white"}
+            "&:hover": { backgroundColor: "#308080", color: "white" },
           }}
         >
           Search

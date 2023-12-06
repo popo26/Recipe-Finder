@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import BackBtn from "@/components/BackBtn";
 
 async function getMealDetail(id) {
-  // console.log("path", id);
   const res = await fetch(
     `http://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
   );

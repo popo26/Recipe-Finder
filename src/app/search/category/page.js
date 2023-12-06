@@ -45,6 +45,7 @@ export default async function Category() {
         {result ? (
           result.categories.map((item) => (
             <Card
+              key={item.idCategory}
               sx={{
                 maxWidth: 280,
                 margin: "0 auto",

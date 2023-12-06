@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@mui/material";
 import { useRouter } from "next/navigation";
-import styles from '../css/custom.css';
+import '../css/custom.css';
 import { Reply } from "@mui/icons-material";
 
 export default function BackBtn() {

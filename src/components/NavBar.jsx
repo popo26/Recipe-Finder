@@ -1,5 +1,5 @@
 "use client"; // client component, not server rendered
-import styles from "../css/custom.css";
+import "../css/custom.css";
 import * as React from "react";
 import { useState } from "react";
 import AppBar from "@mui/material/AppBar";

@@ -33,8 +33,8 @@ export default async function MealsBySelectedMainIngredient({ params }) {
 
         {result ? (
           result.meals.map((item) => (
-            <Link href={`/search/menu/` + item.idMeal}>
-              <ImageListItem key={item.idMeal}>
+            <Link href={`/search/menu/` + item.idMeal} key={item.idMeal}>
+              <ImageListItem>
                 <img
                   srcSet={`${item.strMealThumb}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   src={`${item.strMealThumb}?w=248&fit=crop&auto=format`}

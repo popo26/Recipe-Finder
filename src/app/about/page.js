@@ -1,9 +1,11 @@
 import BackBtn from "@/components/BackBtn";
 import "../page.module.css";
+import UpBtn from "@/components/UpBtn";
 
 export default function About() {
   return (
     <div className="About">
+      <UpBtn />
       <BackBtn />
 
       <h1>About</h1>

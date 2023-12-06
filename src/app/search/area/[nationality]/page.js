@@ -39,8 +39,8 @@ export default async function MealsByArea({ params }) {
       >
         <ImageList variant="masonry" gap={8} cols={3}>
           {result.meals.map((item) => (
-            <Link href={`/search/menu/` + item.idMeal}>
-              <ImageListItem key={item.idMeal}>
+            <Link href={`/search/menu/` + item.idMeal} key={item.idMeal}>
+              <ImageListItem >
                 <img
                   srcSet={`${item.strMealThumb}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   src={`${item.strMealThumb}?w=248&fit=crop&auto=format`}
