@@ -20,7 +20,7 @@ The second mini-project is designed to cover the React concepts learned in modul
 - [X] How have you structured/broken up your components/code? ---> Server Side Rendering with pages.jsx with client side rendering with components
 - [X] What kinds of React hooks have you used (eg. state, context, effect, navigate)?How? ---> useState to capture user's search keyword entry. useSearchParams, usePathname, and useRouter to patth the search keyword to backend API fetch in page.jsx.
 - [ ] Have you created and used any custom hooks?
-- [X] What external tools/libraries have you used (eg. bootstrap/axios/MUI)? How? Why? ---> MUI(for beautiful display and icons), dotenv(to avoid exposing access key for Web3forms), react-world-flag(to display flags in Area Page)
+- [X] What external tools/libraries have you used (eg. bootstrap/axios/MUI)? How? Why? ---> MUI(for beautiful display and icons), dotenv(to avoid exposing access key for Web3forms), react-world-flag(to display flags in Area Page), uuid(as key of map function when there is no id returned for some API data)
 - [X] How might you extend the features of your application in future? ---> Pagination. Filtering functionality in Area, Category, and Ingredient. pages. Responsiveness to MUI ImageLists. Slug instead of idMeal.
 
 
